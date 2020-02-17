@@ -1,10 +1,8 @@
 import { combineReducers } from "@reduxjs/toolkit";
-// import inGameWindowReducer from "features/inGameWindow/inGameWindowSlice";
-// import overlayOptionsReducer from "features/overlayOptions/overlayOptionsSlice";
+import backgroundReducer from "features/background-window/background-slice";
 
 const rootReducer = combineReducers({
-  options: overlayOptionsReducer,
-  gameData: inGameWindowReducer
+  background: backgroundReducer
 });
 
 export type RootReducer = ReturnType<typeof rootReducer>;

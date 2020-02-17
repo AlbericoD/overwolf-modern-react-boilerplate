@@ -16,7 +16,6 @@ const reduxStore = configureStore({
 });
 
 (window as any).reduxStore = reduxStore;
-//@ts-ignore
 const store = overwolf.windows.getMainWindow().reduxStore;
 export type AppDispatch = typeof store.dispatch;
 export default store;

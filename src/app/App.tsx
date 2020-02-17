@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from "react";
-import Background from "features/background-window/window";
-import { InGameWindow } from "features/inGameWindow";
-import { Desktop } from "features/desktopWindow";
+import InGameWindow from "features/in-game-window/InGameWindow";
+import DesktopWindow from "features/desktop-window/DesktopWindow";
+import BackgroundWindow from "features/background-window/BackgroundWindow";
 import { WINDOW_NAMES } from "./constants";
 
 import "./App.css";
@@ -11,9 +11,9 @@ const { BACKGROUND, DESKTOP, INGAME } = WINDOW_NAMES;
 const CurrentPage = ({ page }: { page: string }): JSX.Element => {
   switch (page) {
     case BACKGROUND:
-      return <Background />;
+      return <BackgroundWindow />;
     case DESKTOP:
-      return <Desktop />;
+      return <DesktopWindow />;
     case INGAME:
       return <InGameWindow />;
     default:
@@ -31,12 +31,11 @@ const getCurrentWindow = (): Promise<string> =>
 export const App: FC = (): JSX.Element => {
   const [page, setPage] = useState<string>("");
 
-  async function preLoad() {
-    const currentWindow = await getCurrentWindow();
-    setPage(currentWindow);
-  }
-
   useEffect(() => {
+    async function preLoad() {
+      const currentWindow = await getCurrentWindow();
+      setPage(currentWindow);
+    }
     preLoad();
   }, []);
   return <CurrentPage page={page} />;
