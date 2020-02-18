@@ -24,7 +24,7 @@
   <span> · </span>
 </h3>
 
-> OMRB is a free and open source opinionated boilerplate based on React that helps developers create fast, modular and modern applications.
+> OMRB is a free and open source opinionated boilerplate based on React that helps developers create fast, modular and modern overwolf app.
 
 ### Technology
 
@@ -36,6 +36,8 @@
   <a href="https://www.i18next.com/">I18next</a>
   <span> · </span>
   <a href="https://github.com/reduxjs/redux-devtools">Redux Devtools - Remote</a>
+   <span> · </span>
+  <a href="https://overwolf.github.io/">Overwolf Api</a>
 </h4>
 
 - **Use a Modern Stack for Every App.** Create a uniform workflow for you and your team without ejecting the Create React App code.
