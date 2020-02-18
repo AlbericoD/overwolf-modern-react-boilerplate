@@ -16,7 +16,7 @@
 </p>
 
 <h3 align="center">
-  <a href="#quickstart">Quickstart</a>
+  <a href="#quick-start">Quickstart</a>
   <span> · </span>
   <a href="#project structure">Project structure</a>
   <span> · </span>
