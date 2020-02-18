@@ -14,11 +14,11 @@
 <h3 align="center">
   <a href="#-quick-start">Quickstart</a>
   <span> · </span>
-  <a href="#project structure">Project structure</a>
+  <a href="#project-structure">Project structure</a>
   <span> · </span>
-  <a href=#custom-hooks">Custom Hooks</a>
+  <a href="#custom-hooks">Custom Hooks</a>
   <span> · </span>
-  <a href=#remote-debug">Remote Debug</a>
+  <a href="#remote-debug">Remote Debug</a>
   <span> · </span>
   <a href="#contribution">Contribution</a>
   <span> · </span>
@@ -47,8 +47,14 @@
 - **Build.** Folders and structure ready for use in the overwolf store.
 
 ---
+
 ## 🚀 Quick Start 
 You can get a new overwolf app up and running on your local dev environment with these four steps:
+
+### Prerequisites
+
+- Install [Node.js](https://nodejs.org)
+- Install [npm](https://www.npmjs.com/)
 
 1. **Clone the repo**
 
@@ -79,6 +85,46 @@ You can get a new overwolf app up and running on your local dev environment with
 
    Your app is now running at `http://localhost:3000`. Open the `overwolf-modern-react-boilerplate` directory in your code editor of choice and edit `src/**/*.{ts|tsx}`. Save your changes, and the browser will update in real time!
 
+## 💼 Project structure
+
+```text
+.
+|--- public
+|    |--- app/
+|    |-------IconMouseNormal.png
+|    |-------IconMouseOver.png
+|    |-------TaskbarIcon.png
+|    |-------desktop-icon.ico
+|    |-------manifest.json
+|    |--- store/
+|    |-------description.txt
+|    |-------store.json
+|    |--- index.html
+|--- src
+|    |--- app/
+|    |-------App.css
+|    |-------App.tsx
+|    |-------constants.ts
+|    |-------rootReducer.ts
+|    |-------store.ts
+|    |--- components/*/**.tsx
+|    |--- features/*/**.tsx
+|    |--- typings/*/**.d.ts
+|    |--- locales/*/**.json
+|    |--- index.tsx
+|    |--- overwolf.dev.mock.ts
+|    |--- react-app-env.d.ts
+|    |--- setupTests.ts
+|--- .gitignore
+|--- LICENSE
+|--- README.md
+|--- create-production-overwolf-build.sh
+|--- package-lock.json
+|--- package.json
+|--- remote-dev-redux-devtools.js
+|--- tsconfig.json
+.
+```
 
 # Contribution:
 
