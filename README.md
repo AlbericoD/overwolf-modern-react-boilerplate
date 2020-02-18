@@ -39,6 +39,38 @@
 - **Build.** Folders and structure ready for use in the overwolf store.
 
 ---
+## 🚀 Quick Start 
+You can get a new overwolf app up and running on your local dev environment with these four steps:
+
+1. **Clone the repo**
+
+   ```shell
+   git clone https://github.com/AlbericoD/overwolf-modern-react-boilerplate.git
+
+   ```
+
+2. **Install dependencies.**
+
+   ```shell
+   #Change into directory
+   cd overwolf-modern-react-boilerplate
+
+   #Install
+   npm i
+   ```
+
+3. **Start the app in `develop` mode.**
+
+   Next, start it up:
+
+   ```shell
+    npm start
+   ```
+
+4. **Open the source code and start editing!**
+
+   Your app is now running at `http://localhost:3000`. Open the `overwolf-modern-react-boilerplate` directory in your code editor of choice and edit `src/**/*.{ts|tsx}`. Save your changes, and the browser will update in real time!
+
 
 # Contribution:
 
