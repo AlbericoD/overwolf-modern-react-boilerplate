@@ -1,10 +1,6 @@
 <h1 align="center">
   Overwolf Modern React Boilerplate 
 </h1>
-
-
-
-
 <p align="center">
   <a href="https://github.com/AlbericoD/overwolf-modern-react-boilerplate/blob/master/LICENSE">
     <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="OMRB is released under the MIT license." />
@@ -29,6 +25,18 @@
 </h3>
 
 > OMRB is a free and open source opinionated boilerplate based on React that helps developers create fast, modular and modern applications.
+
+### Technology
+
+<h4 align="center">
+  <a href="https://reactjs.org/">React JS</a>
+  <span> · </span>
+  <a href="https://redux-toolkit.js.org/">Redux ToolKit</a>
+  <span> · </span>
+  <a href="https://www.i18next.com/">I18next</a>
+  <span> · </span>
+  <a href="https://github.com/reduxjs/redux-devtools">Redux Devtools - Remote</a>
+</h4>
 
 - **Use a Modern Stack for Every App.** Create a uniform workflow for you and your team without ejecting the Create React App code.
 
