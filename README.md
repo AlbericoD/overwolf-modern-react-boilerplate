@@ -14,7 +14,7 @@
 <h3 align="center">
   <a href="#-quick-start">Quickstart</a>
   <span> · </span>
-  <a href="#-project-structure">Project structure</a>
+  <a href="#-project-structure---feature-folder">Project structure</a>
   <span> · </span>
   <a href="#custom-hooks">Custom Hooks</a>
   <span> · </span>
