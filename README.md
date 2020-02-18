@@ -22,6 +22,8 @@
   <span> · </span>
   <a href=#custom-hooks">Custom Hooks</a>
   <span> · </span>
+  <a href=#remote-debug">Remote Debug</a>
+  <span> · </span>
   <a href="#contribution">Contribution</a>
   <span> · </span>
 </h3>
