@@ -83,10 +83,18 @@ export const useWindow = (name: string) => {
     if (owDeclaredWindow) {
       const { id } = owDeclaredWindow;
       const windowActions = {
-        minimize: async () => await minimize(id),
-        maximize: async () => await maximize(id),
-        restore: async () => await restore(id),
-        close: async () => await close(id)
+        minimize: async () => {
+          await minimize(id);
+        },
+        maximize: async () => {
+          await maximize(id);
+        },
+        restore: async () => {
+          await restore(id);
+        },
+        close: async () => {
+          await close(id);
+        }
       };
       setOwWindow(windowActions);
     }

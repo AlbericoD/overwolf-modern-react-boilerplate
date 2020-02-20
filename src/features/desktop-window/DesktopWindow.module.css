@@ -1,0 +1,27 @@
+.container {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 15vh 65vh 15vh;
+  grid-template-areas:
+    "header header"
+    "main aside"
+    "footer footer";
+}
+
+.header {
+  background: yellow;
+  grid-area: header;
+}
+.main {
+  background: blue;
+  grid-area: main;
+}
+.aside {
+  background: green;
+  grid-area: aside;
+}
+
+.footer {
+  background: red;
+  grid-area: footer;
+}

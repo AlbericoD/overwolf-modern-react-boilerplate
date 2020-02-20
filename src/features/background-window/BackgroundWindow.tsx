@@ -1,6 +1,7 @@
 import React, { FC, useCallback, useEffect } from "react";
-import { useWindow, useRunningGame } from "./hooks";
 import { WINDOW_NAMES } from "app/constants";
+import { useRunningGame } from "./hooks";
+import { useWindow } from "hooks";
 
 const { DESKTOP, INGAME } = WINDOW_NAMES;
 
