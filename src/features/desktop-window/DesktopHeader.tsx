@@ -1,29 +1,40 @@
-import React, { FC, useState, useRef, useCallback } from "react";
-// import { DragService } from "service/drag-service";
+import React, { FC, useState, useRef, useCallback, useEffect } from "react";
 import { WINDOW_NAMES } from "app/constants";
-import { useWindow } from "hooks";
+import { useWindow, useDrag } from "hooks";
 import { SVGComponent } from "./DesktopHeaderSVG";
 import style from "./DesktopHeader.module.css";
 
 const { DESKTOP, BACKGROUND } = WINDOW_NAMES;
 export const DesktopHeader: FC = () => {
-  const headerEl = useRef(null);
-  const [show, toggleShow] = useState(false);
+  const [maximized, setMaximize] = useState(false);
   const [desktopWindow] = useWindow(DESKTOP);
   const [backgroundWindow] = useWindow(BACKGROUND);
+  const { onDragStart, onMouseMove, setCurrentWindowID } = useDrag(null);
 
   const toggleIcon = useCallback(() => {
-    toggleShow(value => {
+    setMaximize(value => {
       if (value) desktopWindow?.restore();
       else desktopWindow?.maximize();
       return !value;
     });
   }, [desktopWindow]);
 
+  const updateDragWindow = useCallback(() => {
+    if (desktopWindow?.id) setCurrentWindowID(desktopWindow.id);
+  }, [desktopWindow]);
+
+  useEffect(() => {
+    updateDragWindow();
+  }, [updateDragWindow]);
+
   return (
     <>
       <SVGComponent />
-      <header className={style.header} ref={headerEl}>
+      <header
+        className={style.header}
+        onMouseDown={event => onDragStart(event)}
+        onMouseMove={event => onMouseMove(event)}
+      >
         <h3 className={style["header-title"]}>ICON</h3>
         <div className={style["window-controls-group"]}>
           <button
@@ -61,7 +72,7 @@ export const DesktopHeader: FC = () => {
             className={`${style.icon} ${style["toggle-icons"]} ${
               style["window-control"]
             }
-            ${show && style["toggled"]}`}
+            ${maximized && style["toggled"]}`}
             onClick={() => toggleIcon()}
           >
             <svg>

@@ -65,6 +65,7 @@ const restore = (name: string): Promise<void> => {
   });
 };
 interface OwWindow {
+  id: string;
   minimize: () => void;
   maximize: () => void;
   restore: () => void;
@@ -83,6 +84,7 @@ export const useWindow = (name: string) => {
     if (owDeclaredWindow) {
       const { id } = owDeclaredWindow;
       const windowActions = {
+        id,
         minimize: async () => {
           await minimize(id);
         },
