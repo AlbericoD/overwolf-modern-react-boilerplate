@@ -50,7 +50,8 @@
 
 ---
 
-## 🚀 Quick Start 
+## 🚀 Quick Start
+
 You can get a new overwolf app up and running on your local dev environment with these four steps:
 
 ### Prerequisites
@@ -88,7 +89,9 @@ You can get a new overwolf app up and running on your local dev environment with
    Your app is now running at `http://localhost:3000`. Open the `overwolf-modern-react-boilerplate` directory in your code editor of choice and edit `src/**/*.{ts|tsx}`. Save your changes, and the browser will update in real time!
 
 ## 💼 Project structure - Feature Folder.
+
 Folder-by-type only works on small-scale projects. Folder-by-feature is superior in the majority of cases, is better due to its scalability, stands out in high modularity and cohesion. It allows us to play with the components' scope.
+
 ```text
 .
 |--- public
@@ -112,7 +115,28 @@ Folder-by-type only works on small-scale projects. Folder-by-feature is superior
 |    |--- components/*/**.tsx
 |    |--- features/*/**.tsx
 |    |--- typings/*/**.d.ts
-|    |--- locales/*/**.json
+|    |--- locales/
+|    |-----------de/**/*.json
+|    |-----------de/index.ts
+|    |-----------en/**/*.json
+|    |-----------en/index.ts
+|    |-----------es/**/*.json
+|    |-----------es/index.ts
+|    |-----------fr/**/*.json
+|    |-----------fr/index.ts
+|    |-----------it/**/*.json
+|    |-----------it/index.ts
+|    |-----------ko/**/*.json
+|    |-----------ko/index.ts
+|    |-----------pl/**/*.json
+|    |-----------pl/index.ts
+|    |-----------pt/**/*.json
+|    |-----------pt/index.ts
+|    |-----------ru/**/*.json
+|    |-----------ru/index.ts
+|    |-----------tr/**/*.json
+|    |-----------tr/index.ts
+|    |-----------index.ts
 |    |--- index.tsx
 |    |--- overwolf.dev.mock.ts
 |    |--- react-app-env.d.ts
@@ -129,5 +153,3 @@ Folder-by-type only works on small-scale projects. Folder-by-feature is superior
 ```
 
 # Contribution:
-
-

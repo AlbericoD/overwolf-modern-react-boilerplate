@@ -1,9 +1,12 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import { DesktopHeader } from "./DesktopHeader";
 import { Title } from "components/Title";
 import style from "./DesktopWindow.module.css";
+import { useTranslation } from "react-i18next";
 
 const DesktopWindow: FC = () => {
+  const { t } = useTranslation();
+
   return (
     <>
       <DesktopHeader />
@@ -12,10 +15,10 @@ const DesktopWindow: FC = () => {
           <Title color="green">Desktop Window</Title>
         </header>
         <main className={style.main}>
-          <Title color="white">Main</Title>
+          <Title color="white">{t("common.language")}</Title>
         </main>
         <aside className={style.aside}>
-          <Title color="white">Aside</Title>
+          <Title color="white">{t("common.language")}</Title>
         </aside>
         <footer className={style.footer}>
           <Title color="white">Footer</Title>
