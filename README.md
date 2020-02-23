@@ -16,7 +16,7 @@
   <span> · </span>
   <a href="#-project-structure---feature-folder">Project structure</a>
   <span> · </span>
-  <a href="#custom-hooks">Custom Hooks</a>
+  <a href="https://github.com/AlbericoD/overwolf-modern-react-boilerplate/blob/master/CUSTOM-HOOKS.md">Custom Hooks</a>
   <span> · </span>
   <a href="#-remote-redux-debug">Remote Debug</a>
   <span> · </span>
