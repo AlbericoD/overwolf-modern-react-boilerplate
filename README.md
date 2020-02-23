@@ -18,7 +18,7 @@
   <span> · </span>
   <a href="#custom-hooks">Custom Hooks</a>
   <span> · </span>
-  <a href="#remote-debug">Remote Debug</a>
+  <a href="#-remote-redux-debug">Remote Debug</a>
   <span> · </span>
   <a href="#contribution">Contribution</a>
   <span> · </span>
@@ -151,5 +151,28 @@ Folder-by-type only works on small-scale projects. Folder-by-feature is superior
 |--- tsconfig.json
 .
 ```
+
+## 🐛 Remote Redux Debug.
+
+In overwolf it is not possible to install plugins to debug the code, so the alternative is to use something remote to debug an injected code.
+
+1. **Install tool.** 
+  - Install [Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl)
+ in common browser.
+ 
+2. **Configure**
+ - if the installation is correct, a redux dev tools icon should appear in your browser's toolbar.
+ - click into icon then choose "Open remote devTools"
+ - click into settings option and let  hostname called to **"localhost"** e port **8000**.
+3. **Run Server Bridge **
+  - run the server that bridges the remote redux and the overwolf application.
+     ```shell
+     #Change into directory
+     cd overwolf-modern-react-boilerplate
+     npm run start-remote-devtools
+     ```
+4. **Start debugging**
+ > whenever you want to debug your app store, just remember to use the **remote redux dev tools** + **the bridge server**
+
 
 # Contribution:
