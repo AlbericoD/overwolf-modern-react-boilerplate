@@ -1,8 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
+
+import store from "app/store";
+import { Provider } from "react-redux";
+
 import i18next from "i18next";
 import { initReactI18next } from "react-i18next";
 import { resources } from "locales";
+
 import { App } from "./app/App";
 
 overwolf.settings.getCurrentOverwolfLanguage(result => {
@@ -16,7 +21,12 @@ overwolf.settings.getCurrentOverwolfLanguage(result => {
       }
     },
     () => {
-      ReactDOM.render(<App />, document.getElementById("root"));
+      ReactDOM.render(
+        <Provider store={store}>
+          <App />
+        </Provider>,
+        document.getElementById("root")
+      );
     }
   );
 });
