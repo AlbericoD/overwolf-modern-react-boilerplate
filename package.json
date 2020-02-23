@@ -23,7 +23,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && npm run pack-overwolf",
+    "build": "react-scripts build",
     "pack-overwolf": "create-production-overwolf-build.sh",
     "start-remote-devtools": "node remote-dev-redux-devtools",
     "test": "react-scripts test",
