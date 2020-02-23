@@ -20,7 +20,7 @@
   <span> · </span>
   <a href="#-remote-redux-debug">Remote Debug</a>
   <span> · </span>
-  <a href="#contribution">Contribution</a>
+  <a href="https://github.com/AlbericoD/overwolf-modern-react-boilerplate/blob/master/CONTRIBUTING.md">Contribution</a>
   <span> · </span>
 </h3>
 
@@ -173,6 +173,3 @@ In overwolf it is not possible to install plugins to debug the code, so the alte
      ```
 4. **Start debugging**
  > whenever you want to debug your app store, just remember to use the **remote redux dev tools** + **the bridge server**
-
-
-# Contribution:
