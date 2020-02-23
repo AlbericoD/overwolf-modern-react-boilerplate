@@ -162,8 +162,8 @@ In overwolf it is not possible to install plugins to debug the code, so the alte
  
 2. **Configure**
  - if the installation is correct, a redux dev tools icon should appear in your browser's toolbar.
- - click into icon then choose "Open remote devTools"
- - click into settings option and let  hostname called to **"localhost"** e port **8000**.
+ - click into icon then choose **"Open remote devTools"**
+ - click into settings option and let  hostname called to **"localhost"** and port **8000**.
 3. **Run Server Bridge **
   - run the server that bridges the remote redux and the overwolf application.
      ```shell
