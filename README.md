@@ -194,6 +194,8 @@ In overwolf it is not possible to install plugins to debug the code, so the alte
 - **OBS 1** this organization script was tested on the git bash and linux terminal. 
 - **OBS 2** this organization script needs to be ported to windows bash powershell. 
 
-3. **Package all in one .zip**
-  > just send your .zip code to the overwolf test team.
+3. **Create .zip**
+  - the generated code is located in ```|--- build/**/.**```
+  - Package all **build/** folders to .zip
+  - just send your .zip code to the overwolf test team.
 
