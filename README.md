@@ -164,12 +164,36 @@ In overwolf it is not possible to install plugins to debug the code, so the alte
  - if the installation is correct, a redux dev tools icon should appear in your browser's toolbar.
  - click into icon then choose **"Open remote devTools"**
  - click into settings option and let  hostname called to **"localhost"** and port **8000**.
-3. **Run Server Bridge **
+
+3. **Run Server Bridge**
   - run the server that bridges the remote redux and the overwolf application.
      ```shell
      #Change into directory
      cd overwolf-modern-react-boilerplate
      npm run start-remote-devtools
      ```
+
 4. **Start debugging**
  > whenever you want to debug your app store, just remember to use the **remote redux dev tools** + **the bridge server**
+
+## 📦  Build/Create package for overwolf store.
+   you need to create an optimized version of your code and the correct structure before sending it to the overwolf store.
+  [Overwolf Doc: How to submit an app](https://overwolf.github.io/docs/start/submit-your-app-to-the-store#how-to-submit-an-app)
+
+1. **Compile** 
+     ```shell
+     #Change into directory
+     cd overwolf-modern-react-boilerplate
+     npm run build
+     ```
+ 
+2. **Organize Folder**
+  ```shell
+     npm run pack-overwolf
+  ```
+- **OBS 1** this organization script was tested on the git bash and linux terminal. 
+- **OBS 2** this organization script needs to be ported to windows bash powershell. 
+
+3. **Package all in one .zip**
+  > just send your .zip code to the overwolf test team.
+
