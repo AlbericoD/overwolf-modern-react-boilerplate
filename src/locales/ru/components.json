@@ -1,0 +1,10 @@
+{
+  "components": {
+    "desktop": {
+      "header": "Russian-Header-Text",
+      "main": "Russian-Main-Text",
+      "aside": "Russian-Aside-Text",
+      "footer": "Russian-Footer-Text"
+    }
+  }
+}

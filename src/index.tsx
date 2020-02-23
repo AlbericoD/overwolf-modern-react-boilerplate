@@ -6,13 +6,17 @@ import { resources } from "locales";
 import { App } from "./app/App";
 
 overwolf.settings.getCurrentOverwolfLanguage(result => {
-  i18next.use(initReactI18next).init({
-    resources,
-    lng: result.language,
-    fallbackLng: "en",
-    interpolation: {
-      escapeValue: false
+  i18next.use(initReactI18next).init(
+    {
+      resources,
+      lng: result.language,
+      fallbackLng: "en",
+      interpolation: {
+        escapeValue: false
+      }
+    },
+    () => {
+      ReactDOM.render(<App />, document.getElementById("root"));
     }
-  });
-  ReactDOM.render(<App />, document.getElementById("root"));
+  );
 });

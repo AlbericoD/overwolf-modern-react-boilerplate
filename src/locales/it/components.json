@@ -1,0 +1,10 @@
+{
+  "components": {
+    "desktop": {
+      "header": "Italian-Header-Text",
+      "main": "Italian-Main-Text",
+      "aside": "Italian-Aside-Text",
+      "footer": "Italian-Footer-Text"
+    }
+  }
+}

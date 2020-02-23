@@ -1,0 +1,10 @@
+{
+  "components": {
+    "desktop": {
+      "header": "French-Header-Text",
+      "main": "French-Main-Text",
+      "aside": "French-Aside-Text",
+      "footer": "French-Footer-Text"
+    }
+  }
+}

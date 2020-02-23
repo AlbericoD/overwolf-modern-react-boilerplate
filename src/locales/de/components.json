@@ -1,0 +1,10 @@
+{
+  "components": {
+    "desktop": {
+      "header": "German-Header-Text",
+      "main": "German-Main-Text",
+      "aside": "German-Aside-Text",
+      "footer": "German-Footer-Text"
+    }
+  }
+}

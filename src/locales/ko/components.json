@@ -1,0 +1,10 @@
+{
+  "components": {
+    "desktop": {
+      "header": "Korean-Header-Text",
+      "main": "Korean-Main-Text",
+      "aside": "Korean-Aside-Text",
+      "footer": "Korean-Footer-Text"
+    }
+  }
+}

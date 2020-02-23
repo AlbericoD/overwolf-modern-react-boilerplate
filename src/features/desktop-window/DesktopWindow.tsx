@@ -12,16 +12,20 @@ const DesktopWindow: FC = () => {
       <DesktopHeader />
       <div className={style.container}>
         <header className={style.header}>
-          <Title color="green">Desktop Window</Title>
+          <Title color="green">
+            Current Locale: <b>{t("common.language")}</b>
+            <br />
+            {t("components.desktop.header")}
+          </Title>
         </header>
         <main className={style.main}>
-          <Title color="white">{t("common.language")}</Title>
+          <Title color="white">{t("components.desktop.main")}</Title>
         </main>
         <aside className={style.aside}>
-          <Title color="white">{t("common.language")}</Title>
+          <Title color="white">{t("components.desktop.aside")}</Title>
         </aside>
         <footer className={style.footer}>
-          <Title color="white">Footer</Title>
+          <Title color="white">{t("components.desktop.footer")}</Title>
         </footer>
       </div>
     </>

@@ -1,0 +1,10 @@
+{
+  "components": {
+    "desktop": {
+      "header": "Turkish-Header-Text",
+      "main": "Turkish-Main-Text",
+      "aside": "Turkish-Aside-Text",
+      "footer": "Turkish-Footer-Text"
+    }
+  }
+}
