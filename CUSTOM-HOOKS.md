@@ -27,7 +27,7 @@ return <>
         </>
  }
   ```
-2. [**useDrag.ts.ts**](https://github.com/AlbericoD/overwolf-modern-react-boilerplate/blob/master/src/hooks/useDrag.ts)
+2. [**useDrag.ts**](https://github.com/AlbericoD/overwolf-modern-react-boilerplate/blob/master/src/hooks/useDrag.ts)
 
   ```TSX
 import React,{ useCallback } from "react";
