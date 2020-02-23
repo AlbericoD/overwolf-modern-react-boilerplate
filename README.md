@@ -83,6 +83,8 @@ You can get a new overwolf app up and running on your local dev environment with
    ```shell
     npm start
    ```
+in development mode, the application create a [mock overwolf object](https://github.com/AlbericoD/overwolf-modern-react-boilerplate/blob/master/src/overwolf.dev.mock.ts), this allows you to develop your application in the common browser.
+
 
 4. **Open the source code and start editing!**
 
