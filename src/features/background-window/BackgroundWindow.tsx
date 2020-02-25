@@ -3,7 +3,11 @@ import { useDispatch } from "react-redux";
 
 import { WINDOW_NAMES } from "app/constants";
 import { setEvent, setInfo } from "./background-slice";
-import { useWindow, useGameEventProvider, useRunningGame } from "hooks";
+import {
+  useWindow,
+  useGameEventProvider,
+  useRunningGame
+} from "overwolf-hooks";
 
 const { DESKTOP, INGAME } = WINDOW_NAMES;
 

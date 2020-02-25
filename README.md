@@ -16,7 +16,7 @@
   <span> · </span>
   <a href="#-project-structure---feature-folder">Project structure</a>
   <span> · </span>
-  <a href="https://github.com/AlbericoD/overwolf-modern-react-boilerplate/blob/master/CUSTOM-HOOKS.md">Custom Hooks</a>
+  <a href="https://www.npmjs.com/package/overwolf-hooks">Overwolf Custom Hooks</a>
   <span> · </span>
   <a href="#-remote-redux-debug">Remote Debug</a>
   <span> · </span>
@@ -83,10 +83,10 @@ You can get a new overwolf app up and running on your local dev environment with
    ```shell
     npm start
    ```
-in development mode, the application create a [mock overwolf object](https://github.com/AlbericoD/overwolf-modern-react-boilerplate/blob/master/src/overwolf.dev.mock.ts), this allows you to develop your application in the common browser.
 
+   in development mode, the application create a [mock overwolf object](https://github.com/AlbericoD/overwolf-modern-react-boilerplate/blob/master/src/overwolf.dev.mock.ts), this allows you to develop your application in the common browser.
 
-4. **Open the source code and start editing!**
+4) **Open the source code and start editing!**
 
    Your app is now running at `http://localhost:3000`. Open the `overwolf-modern-react-boilerplate` directory in your code editor of choice and edit `src/**/*.{ts|tsx}`. Save your changes, and the browser will update in real time!
 
@@ -158,46 +158,53 @@ Folder-by-type only works on small-scale projects. Folder-by-feature is superior
 
 In overwolf it is not possible to install plugins to debug the code, so the alternative is to use something remote to debug an injected code.
 
-1. **Install tool.** 
-  - Install [Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl)
- in common browser.
- 
+1. **Install tool.**
+
+- Install [Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl)
+  in common browser.
+
 2. **Configure**
- - if the installation is correct, a redux dev tools icon should appear in your browser's toolbar.
- - click into icon then choose **"Open remote devTools"**
- - click into settings option and let  hostname called to **"localhost"** and port **8000**.
+
+- if the installation is correct, a redux dev tools icon should appear in your browser's toolbar.
+- click into icon then choose **"Open remote devTools"**
+- click into settings option and let hostname called to **"localhost"** and port **8000**.
 
 3. **Run Server Bridge**
-  - run the server that bridges the remote redux and the overwolf application.
-     ```shell
-     #Change into directory
-     cd overwolf-modern-react-boilerplate
-     npm run start-remote-devtools
-     ```
+
+- run the server that bridges the remote redux and the overwolf application.
+  ```shell
+  #Change into directory
+  cd overwolf-modern-react-boilerplate
+  npm run start-remote-devtools
+  ```
 
 4. **Start debugging**
- > whenever you want to debug your app store, just remember to use the **remote redux dev tools** + **the bridge server**
+   > whenever you want to debug your app store, just remember to use the **remote redux dev tools** + **the bridge server**
 
-## 📦  Build/Create package for overwolf store.
-   you need to create an optimized version of your code and the correct structure before sending it to the overwolf store.
-  [Overwolf Doc: How to submit an app](https://overwolf.github.io/docs/start/submit-your-app-to-the-store#how-to-submit-an-app)
+## 📦 Build/Create package for overwolf store.
 
-1. **Compile** 
-     ```shell
-     #Change into directory
-     cd overwolf-modern-react-boilerplate
-     npm run build
-     ```
- 
+you need to create an optimized version of your code and the correct structure before sending it to the overwolf store.
+[Overwolf Doc: How to submit an app](https://overwolf.github.io/docs/start/submit-your-app-to-the-store#how-to-submit-an-app)
+
+1. **Compile**
+
+   ```shell
+   #Change into directory
+   cd overwolf-modern-react-boilerplate
+   npm run build
+   ```
+
 2. **Organize Folder**
-  ```shell
-     npm run pack-overwolf
-  ```
-- **OBS 1** this organization script was tested on the git bash and linux terminal. 
-- **OBS 2** this organization script needs to be ported to windows bash powershell. 
+
+```shell
+   npm run pack-overwolf
+```
+
+- **OBS 1** this organization script was tested on the git bash and linux terminal.
+- **OBS 2** this organization script needs to be ported to windows bash powershell.
 
 3. **Create .zip**
-  - the generated code is located in ```|--- build/**/.**```
-  - Package all **build/** folders to .zip
-  - just send your .zip code to the overwolf test team.
 
+- the generated code is located in `|--- build/**/.**`
+- Package all **build/** folders to .zip
+- just send your .zip code to the overwolf test team.

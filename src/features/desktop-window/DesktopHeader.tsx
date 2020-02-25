@@ -1,6 +1,6 @@
 import React, { FC, useState, useRef, useCallback, useEffect } from "react";
 import { WINDOW_NAMES } from "app/constants";
-import { useWindow, useDrag } from "hooks";
+import { useWindow, useDrag } from "overwolf-hooks";
 import { SVGComponent } from "./DesktopHeaderSVG";
 import style from "./DesktopHeader.module.css";
 
