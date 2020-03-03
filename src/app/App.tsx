@@ -33,8 +33,12 @@ export const App: FC = (): JSX.Element => {
 
   useEffect(() => {
     async function preLoad() {
-      const currentWindow = await getCurrentWindow();
-      setPage(currentWindow);
+      if (process.env.NODE_ENV === "development") {
+        setPage(DESKTOP);
+      } else {
+        const currentWindow = await getCurrentWindow();
+        setPage(currentWindow);
+      }
     }
     preLoad();
   }, []);

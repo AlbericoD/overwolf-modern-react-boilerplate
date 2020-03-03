@@ -24,7 +24,7 @@ const BackgroundWindow: FC = () => {
     GameExample.Info,
     GameExample.Event
   >();
-  const dispatch = useDispatch();
+  const dispatch = useCallback(useDispatch(), []);
 
   const openStartupWindow = useCallback(() => {
     const gameRunning =
@@ -32,14 +32,14 @@ const BackgroundWindow: FC = () => {
     const currentWindow = gameRunning ? ingameWindow : desktopWindow;
     gameRunning && setGameFeatures(gameFeatures);
     currentWindow?.restore();
-  }, [desktopWindow, ingameWindow, currentGame]);
+  }, [desktopWindow, ingameWindow, currentGame, setGameFeatures]);
 
   useEffect(() => {
     event && dispatch(setEvent({ event }));
-  }, [event]);
+  }, [event, dispatch]);
   useEffect(() => {
     info && dispatch(setInfo({ info }));
-  }, [info]);
+  }, [info, dispatch]);
   useEffect(() => {
     openStartupWindow();
   }, [openStartupWindow]);

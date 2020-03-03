@@ -1,3 +1,4 @@
+import "./overwolf.dev.mock";
 import React from "react";
 import ReactDOM from "react-dom";
 

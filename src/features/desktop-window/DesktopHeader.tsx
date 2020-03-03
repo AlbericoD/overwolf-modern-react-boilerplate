@@ -1,4 +1,4 @@
-import React, { FC, useState, useRef, useCallback, useEffect } from "react";
+import React, { FC, useState, useCallback, useEffect } from "react";
 import { WINDOW_NAMES } from "app/constants";
 import { useWindow, useDrag } from "overwolf-hooks";
 import { SVGComponent } from "./DesktopHeaderSVG";
@@ -21,7 +21,7 @@ export const DesktopHeader: FC = () => {
 
   const updateDragWindow = useCallback(() => {
     if (desktopWindow?.id) setCurrentWindowID(desktopWindow.id);
-  }, [desktopWindow]);
+  }, [desktopWindow, setCurrentWindowID]);
 
   useEffect(() => {
     updateDragWindow();

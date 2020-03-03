@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from "react";
+import React, { FC } from "react";
 import { DesktopHeader } from "./DesktopHeader";
 import { Title } from "components/Title";
 import style from "./DesktopWindow.module.css";
