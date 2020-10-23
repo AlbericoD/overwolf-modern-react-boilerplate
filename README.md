@@ -1,5 +1,3 @@
-This is the official [Overwolf Modern React Boilerplate](https://github.com/AlbericoD/overwolf-modern-react-boilerplate) template for [Create React App](https://github.com/facebook/create-react-app).
-
 <h1 align="center">
   Overwolf Modern React Boilerplate 
 </h1>
@@ -25,6 +23,8 @@ This is the official [Overwolf Modern React Boilerplate](https://github.com/Albe
   <a href="https://github.com/AlbericoD/overwolf-modern-react-boilerplate/blob/master/CONTRIBUTING.md">Contribution</a>
   <span> · </span>
 </h3>
+
+> This is the official [Overwolf Modern React Boilerplate](https://github.com/AlbericoD/overwolf-modern-react-boilerplate) template for [Create React App](https://github.com/facebook/create-react-app).
 
 > OMRB is a free and open source opinionated boilerplate based on React that helps developers create fast, modular and modern overwolf app.
 
@@ -53,6 +53,11 @@ This is the official [Overwolf Modern React Boilerplate](https://github.com/Albe
 ---
 
 ## 🚀 Quick Start
+
+### Prerequisites
+
+- Install [Node.js](https://nodejs.org)
+- Install [npm](https://www.npmjs.com/)
 
 To use this template, add `--template overwolf-typescript-redux` when creating a new app.
 
