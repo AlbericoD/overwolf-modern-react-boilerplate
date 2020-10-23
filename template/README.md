@@ -24,6 +24,8 @@
   <span> · </span>
 </h3>
 
+> This is the official [Overwolf Modern React Boilerplate](https://github.com/AlbericoD/overwolf-modern-react-boilerplate) template for [Create React App](https://github.com/facebook/create-react-app).
+
 > OMRB is a free and open source opinionated boilerplate based on React that helps developers create fast, modular and modern overwolf app.
 
 ### Technology
@@ -52,43 +54,27 @@
 
 ## 🚀 Quick Start
 
-You can get a new overwolf app up and running on your local dev environment with these four steps:
-
 ### Prerequisites
 
 - Install [Node.js](https://nodejs.org)
 - Install [npm](https://www.npmjs.com/)
 
-1. **Clone the repo**
+To use this template, add `--template overwolf-typescript-redux` when creating a new app.
 
-   ```shell
-   git clone https://github.com/AlbericoD/overwolf-modern-react-boilerplate.git
+For example:
 
-   ```
+```sh
+npx create-react-app my-app --template overwolf-typescript-redux
 
-2. **Install dependencies.**
+# or
 
-   ```shell
-   #Change into directory
-   cd overwolf-modern-react-boilerplate
+yarn create react-app my-app --template overwolf-typescript-redux
+```
 
-   #Install
-   npm i
-   ```
+For more information, please refer to:
 
-3. **Start the app in `develop` mode.**
-
-   Next, start it up:
-
-   ```shell
-    npm start
-   ```
-
-   in development mode, the application create a [mock overwolf object](https://github.com/AlbericoD/overwolf-modern-react-boilerplate/blob/master/src/overwolf.dev.mock.ts), this allows you to develop your application in the common browser.
-
-4) **Open the source code and start editing!**
-
-   Your app is now running at `http://localhost:3000`. Open the `overwolf-modern-react-boilerplate` directory in your code editor of choice and edit `src/**/*.{ts|tsx}`. Save your changes, and the browser will update in real time!
+- [Getting Started](https://create-react-app.dev/docs/getting-started) – How to create a new app.
+- [User Guide](https://create-react-app.dev) – How to develop apps bootstrapped with Create React App.
 
 ## 💼 Project structure - Feature Folder.
 
