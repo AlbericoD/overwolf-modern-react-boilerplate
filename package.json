@@ -1,37 +1,37 @@
 {
-    "name": "cra-template-overwolf-typescript-redux",
-    "version": "1.0.8",
-    "description": "This is the official [Overwolf TypeScript Redux](https://github.com/AlbericoD/overwolf-modern-react-boilerplate) template for [Create React App](https://github.com/facebook/create-react-app).",
-    "main": "template.json",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/AlbericoD/overwolf-modern-react-boilerplate.git",
-        "directory": "template/typescript-redux"
-    },
-    "keywords": [
-        "react",
-        "create-react-app",
-        "template",
-        "typescript",
-        "overwolf",
-        "redux",
-        "i18n",
-        "games"
-    ],
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/AlbericoD/overwolf-modern-react-boilerplate/issues"
-    },
-    "homepage": "https://github.com/AlbericoD/overwolf-modern-react-boilerplate#readme",
-    "files": [
-        "template",
-        "template.json"
-    ],
-    "engines": {
-        "node": ">=10"
-    }
+  "name": "cra-template-overwolf-typescript-redux",
+  "version": "1.0.9",
+  "description": "This is the official [Overwolf TypeScript Redux](https://github.com/AlbericoD/overwolf-modern-react-boilerplate) template for [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "template.json",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlbericoD/overwolf-modern-react-boilerplate.git",
+    "directory": "template/typescript-redux"
+  },
+  "keywords": [
+    "react",
+    "create-react-app",
+    "template",
+    "typescript",
+    "overwolf",
+    "redux",
+    "i18n",
+    "games"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlbericoD/overwolf-modern-react-boilerplate/issues"
+  },
+  "homepage": "https://github.com/AlbericoD/overwolf-modern-react-boilerplate#readme",
+  "files": [
+    "template",
+    "template.json"
+  ],
+  "engines": {
+    "node": ">=10"
+  }
 }
