@@ -8,10 +8,10 @@
   <a href="#contribution">
     <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs welcome!" />
   </a>
-<a href="https://www.npmjs.com/package/cra-template-overwolf-typescript-redux?activeTab=versions">
+<a href="https://www.npmjs.com/package/cra-template-overwolf-typescript-redux">
    <img src="https://badgen.net/npm/v/cra-template-overwolf-typescript-redux" alt="NPM version />
 </a>
-<a href="https://www.npmjs.com/package/cra-template-overwolf-typescript-redux?activeTab=readme"> 
+<a href="https://www.npmjs.com/package/cra-template-overwolf-typescript-redux"> 
    <img src="https://badgen.net/npm/dt/cra-template-overwolf-typescript-redux" alt="NPM Downloads" />
 </a> 
 </p>
