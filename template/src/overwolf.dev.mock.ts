@@ -1,8 +1,8 @@
-import rootReducer from "app/rootReducer";
-import { WINDOW_NAMES } from "app/constants";
+import rootReducer from 'app/rootReducer'
+import { WINDOW_NAMES } from 'app/constants'
 
-import { configureStore } from "@reduxjs/toolkit";
-import devToolsEnhancer from "remote-redux-devtools";
+import { configureStore } from '@reduxjs/toolkit'
+import devToolsEnhancer from 'remote-redux-devtools'
 
 const reduxStore = configureStore({
   reducer: rootReducer,
@@ -10,12 +10,12 @@ const reduxStore = configureStore({
   enhancers: [
     devToolsEnhancer({
       realtime: true,
-      name: "Overwolf ",
-      hostname: "localhost",
-      port: 8000
-    })
-  ]
-});
+      name: 'Overwolf ',
+      hostname: 'localhost',
+      port: 8000,
+    }),
+  ],
+})
 class MockGepMethods {
   static addListener(callback: (payload?: any) => void): void {
     //callback();
@@ -26,14 +26,17 @@ class MockGepMethods {
 }
 class MockCommonMethods {
   static addListener(callback: (payload?: any) => void): void {
-    callback();
+    callback()
   }
   static removeListener(callback: (payload?: any) => void): void {
-    callback();
+    callback()
   }
-  static simpleRequestInterval(interval: number, callback: () => void): void {
-    console.info(`Callback interval ${interval}`);
-    callback();
+  static simpleRequestInterval(
+    interval: number,
+    callback: overwolf.CallbackFunction<overwolf.Result>,
+  ): void {
+    console.info(`Callback interval ${interval}`)
+    callback({ success: true })
   }
 }
 /**
@@ -49,7 +52,7 @@ class MockCommonMethods {
 
 //@ts-ignore
 const overwolfMock: typeof overwolf = {
-  version: "BROWSER DEV",
+  version: 'BROWSER DEV',
   benchmarking: {
     onFpsInfoReady: MockCommonMethods,
     onHardwareInfoReady: MockCommonMethods,
@@ -57,93 +60,179 @@ const overwolfMock: typeof overwolf = {
     requestFpsInfo: MockCommonMethods.simpleRequestInterval,
     requestHardwareInfo: MockCommonMethods.simpleRequestInterval,
     requestProcessInfo: MockCommonMethods.simpleRequestInterval,
-    requestPermissions: (callback: () => void) => {
-      callback();
+    requestPermissions: (
+      callback: overwolf.CallbackFunction<overwolf.Result>,
+    ) => {
+      callback({ success: true })
     },
-    stopRequesting: () => {}
+    stopRequesting: () => {},
   },
   //@ts-ignore
   settings: {
-    getCurrentOverwolfLanguage: (
-      callback: (result: overwolf.settings.IInitI18N) => void
-    ) => {
-      callback({ status: "success", language: "en" });
-    }
+    language: {
+      get: (
+        callback: (
+          result: overwolf.settings.language.GetLanguageResult,
+        ) => void,
+      ) => {
+        console.info('get language')
+        callback({ language: 'en', success: true })
+      },
+      onLanguageChanged: {
+        addListener: (
+          callback: (
+            payload: overwolf.settings.language.LanguageChangedEvent,
+          ) => void,
+        ) => {
+          console.log('onLanguageChanged addListener')
+          callback({ language: 'en' })
+        },
+        removeListener: (
+          callback: (
+            payload: overwolf.settings.language.LanguageChangedEvent,
+          ) => void,
+        ) => {
+          callback({ language: 'en' })
+        },
+      },
+    },
   },
   //@ts-ignore
   utils: {
     openUrlInDefaultBrowser: (url: string) => {
-      window.open(url);
-    }
+      window.open(url)
+    },
   },
   //@ts-ignore
   windows: {
     getCurrentWindow(callback: (result: any) => void): void {
-      callback({ window: { name: WINDOW_NAMES.BACKGROUND }, success: true });
+      callback({ window: { name: WINDOW_NAMES.BACKGROUND }, success: true })
     },
     //@ts-ignore
     getMainWindow: () => ({ reduxStore }),
+    //@ts-ignore
     obtainDeclaredWindow(
       windowName: string,
-      callback: (response: any) => void
+      callback: (response: any) => void,
     ): void {
-      callback({ window: { name: windowName }, success: true });
+      callback({ window: { name: windowName }, success: true })
     },
+    //@ts-ignore
     restore(windowId: string, callback: (result: any) => void): void {
-      console.info("Mock restore ");
+      console.info('Mock restore ')
     },
+    //@ts-ignore
     maximize(windowId: string, callback: (result: any) => void): void {
-      console.info("Mock maximize");
+      console.info('Mock maximize')
     },
+    //@ts-ignore
     close(windowId: string, callback: () => void): void {
-      console.info("Mock close");
-    },
+      console.info('Mock close')
+    }, //@ts-ignore
     minimize(windowId: string, callback: (result: any) => void): void {
-      console.info("Mock minimize");
-    }
+      console.info('Mock minimize')
+    },
   },
   //@ts-ignore
   games: {
+    //@ts-ignore
     events: {
       onInfoUpdates2: MockGepMethods,
       onNewEvents: MockGepMethods,
       onInfoUpdates: MockGepMethods,
       onError: MockGepMethods,
       setRequiredFeatures: (features, callback) => {
-        callback({ success: true, features });
+        //@ts-ignore
+        callback({ success: true, features })
       },
       getInfo: (callback: (payload?: any) => void) => {
-        callback();
-      }
+        callback()
+      },
     },
     onGameInfoUpdated: MockGepMethods,
+    //@ts-ignore
     inputTracking: {
       onKeyDown: MockCommonMethods,
       onKeyUp: MockCommonMethods,
       onMouseDown: MockCommonMethods,
       onMouseUp: MockCommonMethods,
-      getMousePosition: (callback: () => void) => {
-        callback();
-      },
-      getActivityInformation: (callback: () => void) => {
-        callback();
-      },
-      getEyeTrackingInformation: (callback: () => void) => {
-        callback();
-      },
-      getMatchActivityInformation: (
-        callback: (activity: overwolf.games.IMatchActivity) => void
+      getMousePosition: (
+        callback: overwolf.CallbackFunction<
+          overwolf.games.inputTracking.GetActivityResult
+        >,
       ) => {
-        callback({ activity: {}, status: "DEV_BROWSER" });
+        callback({
+          success: true,
+          activity: {
+            aTime: 0,
+            apm: false,
+            iTime: 0,
+            keyboard: {
+              keys: [],
+              total: 0,
+            },
+            mouse: {
+              dist: 0,
+              keys: 0,
+              total: 0,
+            },
+          },
+        })
+      },
+      getActivityInformation: (
+        callback: overwolf.CallbackFunction<
+          overwolf.games.inputTracking.GetActivityResult
+        >,
+      ) => {
+        callback({
+          success: true,
+          activity: {
+            aTime: 0,
+            apm: false,
+            iTime: 0,
+            keyboard: {
+              keys: [],
+              total: 0,
+            },
+            mouse: {
+              dist: 0,
+              keys: 0,
+              total: 0,
+            },
+          },
+        })
+      },
+      getEyeTrackingInformation: (
+        callback: overwolf.CallbackFunction<
+          overwolf.games.inputTracking.GetActivityResult
+        >,
+      ) => {
+        callback({
+          success: true,
+          activity: {
+            aTime: 0,
+            apm: false,
+            iTime: 0,
+            keyboard: {
+              keys: [],
+              total: 0,
+            },
+            mouse: {
+              dist: 0,
+              keys: 0,
+              total: 0,
+            },
+          },
+        })
       },
       pauseEyeTracking: () => {},
-      resumeEyeTracking: () => {}
-    }
-  }
-};
+      resumeEyeTracking: () => {},
+    },
+  },
+}
 
-export default process.env.NODE_ENV !== "production" &&
-  Object.defineProperty(window, "overwolf", {
+export default process.env.NODE_ENV !== 'production' &&
+  Object.defineProperty(window, 'overwolf', {
     writable: true,
-    value: overwolfMock
-  });
+    value: overwolfMock,
+  })
