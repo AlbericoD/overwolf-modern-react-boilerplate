@@ -1,21 +1,6 @@
-import rootReducer from 'app/rootReducer'
 import { WINDOW_NAMES } from 'app/constants'
+import reduxStore from 'app/store'
 
-import { configureStore } from '@reduxjs/toolkit'
-import devToolsEnhancer from 'remote-redux-devtools'
-
-const reduxStore = configureStore({
-  reducer: rootReducer,
-  devTools: false,
-  enhancers: [
-    devToolsEnhancer({
-      realtime: true,
-      name: 'Overwolf ',
-      hostname: 'localhost',
-      port: 8000,
-    }),
-  ],
-})
 class MockGepMethods {
   static addListener(callback: (payload?: any) => void): void {
     //callback();

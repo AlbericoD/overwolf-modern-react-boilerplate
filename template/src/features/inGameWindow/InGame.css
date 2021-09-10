@@ -1,0 +1,5 @@
+.in-game-container {
+  overflow: hidden;
+  max-height: 400px;
+  max-width: 350px;
+}

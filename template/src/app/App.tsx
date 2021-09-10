@@ -1,46 +1,30 @@
-import React, { FC, useEffect, useState } from "react";
-import InGameWindow from "features/in-game-window/InGameWindow";
-import DesktopWindow from "features/desktop-window/DesktopWindow";
-import BackgroundWindow from "features/background-window/BackgroundWindow";
-import { WINDOW_NAMES } from "./constants";
+import { useEffect, useState } from 'react'
+import { CurrentPage } from './CurrentPage'
+import { WINDOW_NAMES } from './constants'
+import { getCurrentWindow } from 'utils'
+import './App.css'
 
-import "./App.css";
-
-const { BACKGROUND, DESKTOP, INGAME } = WINDOW_NAMES;
-
-const CurrentPage = ({ page }: { page: string }): JSX.Element => {
-  switch (page) {
-    case BACKGROUND:
-      return <BackgroundWindow />;
-    case DESKTOP:
-      return <DesktopWindow />;
-    case INGAME:
-      return <InGameWindow />;
-    default:
-      return <p>Loading</p>;
-  }
-};
-
-const getCurrentWindow = (): Promise<string> =>
-  new Promise(resolve =>
-    overwolf.windows.getCurrentWindow(result => {
-      resolve(result.window.name);
-    })
-  );
-
-export const App: FC = (): JSX.Element => {
-  const [page, setPage] = useState<string>("");
+//This is the main component of the app, it is the root of the app
+//each Page component is rendered in a different window
+//if NODE_ENV is set to development, the app will render in a window named 'dev'
+export const App = () => {
+  const [page, setPage] = useState<string>('')
 
   useEffect(() => {
     async function preLoad() {
-      if (process.env.NODE_ENV === "development") {
-        setPage(DESKTOP);
+      if (process.env.NODE_ENV === 'development') {
+        //you can set the current window to dev if you want to see the dev page <Normal Browser>
+        setPage(WINDOW_NAMES.DESKTOP)
       } else {
-        const currentWindow = await getCurrentWindow();
-        setPage(currentWindow);
+        const currentWindow = await getCurrentWindow()
+        setPage(currentWindow)
+        console.info(
+          '[🐺 overwolf-modern-react-boilerplate][🧰 src/app/App.tsx][🔧 useEffect - preLoad]',
+          JSON.stringify({ currentWindow }, null, 2),
+        )
       }
     }
-    preLoad();
-  }, []);
-  return <CurrentPage page={page} />;
-};
+    preLoad()
+  }, [])
+  return <CurrentPage page={page} />
+}

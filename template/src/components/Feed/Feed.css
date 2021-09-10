@@ -1,0 +1,21 @@
+.feed-container {
+  padding: 1rem;
+  font-family: 'Baloo 2', sans-serif;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+li {
+  align-items: start;
+  font-size: 0.7rem;
+  line-height: 1.25;
+  max-width: 25ch;
+}
+ul li::before {
+  content: attr(data-icon);
+  font-size: 1.25em;
+}
