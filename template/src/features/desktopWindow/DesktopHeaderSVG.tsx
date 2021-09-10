@@ -1,6 +1,5 @@
-import React, { FC } from "react";
-export const SVGComponent: FC = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" style={{ display: "none" }}>
+export const SVGComponent = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" style={{ display: 'none' }}>
     <symbol id="window-control_close" viewBox="0 0 30 30">
       <line
         x1="19.5"
@@ -76,4 +75,4 @@ export const SVGComponent: FC = () => (
       />
     </symbol>
   </svg>
-);
+)

@@ -2,8 +2,8 @@
   "manifest_version": 1,
   "type": "WebApp",
   "meta": {
-    "name": "Overwolf Modern React Boilerplate",
-    "version": "1.0.0",
+    "name": "Overwolf Modern React Boilerplate-v2",
+    "version": "2.0.0",
     "minimum-overwolf-version": "0.120.0",
     "author": "Albérico Dias Barreto Filho",
     "icon": "IconMouseOver.png",
@@ -62,20 +62,20 @@
         "transparent": true,
         "resizable": true,
         "size": {
-          "width": 250,
-          "height": 340
+          "width": 350,
+          "height": 450
         },
         "min_size": {
-          "width": 250,
-          "height": 340
+          "width": 350,
+          "height": 450
         },
         "max_size": {
-          "width": 400,
-          "height": 360
+          "width": 350,
+          "height": 450
         },
         "start_position": {
-          "top": 500,
-          "left": 30
+          "top": 200,
+          "left": 12
         }
       }
     },

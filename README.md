@@ -1,5 +1,5 @@
 <h1 align="center">
-  Overwolf Modern React Boilerplate 
+  Overwolf Modern React Boilerplate
 </h1>
 <p align="center">
   <a href="https://github.com/AlbericoD/overwolf-modern-react-boilerplate/blob/master/LICENSE">
@@ -75,6 +75,22 @@ For more information, please refer to:
 - [Getting Started](https://create-react-app.dev/docs/getting-started) – How to create a new app.
 - [User Guide](https://create-react-app.dev) – How to develop apps bootstrapped with Create React App.
 
+## 📸 Screenshot
+
+> In this version the project is configured and ready to test with the Hearthstone game, you can use the template, compile and test without modifying anything to understand the development flow.
+
+#### Desktop Window
+
+![Desktop Window](./doc/desktop-wn.png)
+
+#### InGame Window - 1
+
+![Desktop Window](./doc/hearthstone-ingame.png)
+
+#### InGame Window - 2
+
+![Desktop Window](./doc/hearthstone-ingame-2.png)
+
 ## 💼 Project structure - Feature Folder.
 
 Folder-by-type only works on small-scale projects. Folder-by-feature is superior in the majority of cases, is better due to its scalability, stands out in high modularity and cohesion. It allows us to play with the components' scope.
@@ -97,8 +113,10 @@ Folder-by-type only works on small-scale projects. Folder-by-feature is superior
 |    |-------App.css
 |    |-------App.tsx
 |    |-------constants.ts
+|    |-------CurrentPage.tsx
 |    |-------rootReducer.ts
 |    |-------store.ts
+|    |----utils/*/**/.ts
 |    |--- components/*/**.tsx
 |    |--- features/*/**.tsx
 |    |--- typings/*/**.d.ts

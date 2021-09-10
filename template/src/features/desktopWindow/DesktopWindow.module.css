@@ -3,25 +3,25 @@
   grid-template-columns: 3fr 1fr;
   grid-template-rows: 15vh 65vh 15vh;
   grid-template-areas:
-    "header header"
-    "main aside"
-    "footer footer";
+    'header header'
+    'main aside'
+    'footer footer';
 }
 
 .header {
-  background: yellow;
+  background: #201c33;
   grid-area: header;
 }
 .main {
-  background: blue;
+  background: #161326;
   grid-area: main;
 }
 .aside {
-  background: green;
+  background: #e6004c;
   grid-area: aside;
 }
 
 .footer {
-  background: red;
+  background: #201c33;
   grid-area: footer;
 }

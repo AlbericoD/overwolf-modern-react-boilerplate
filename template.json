@@ -30,8 +30,9 @@
             ]
         },
         "scripts": {
-            "pack-overwolf": "create-production-overwolf-build.sh",
-            "start-remote-devtools": "node remote-dev-redux-devtools"
+            "pack-overwolf": "./create-production-overwolf-build.sh",
+            "start-remote-devtools": "node remote-dev-redux-devtools",
+            "build:overwolf":"npm run build && npm run pack-overwolf"
         },
         "homepage": "."
     }

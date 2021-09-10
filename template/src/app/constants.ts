@@ -23,3 +23,8 @@ export const WINDOW_NAMES = {
   INGAME: 'in_game',
   DESKTOP: 'desktop',
 }
+
+//overwolf-hooks logs
+export const OVERWOLF_HOOKS_OPTIONS = {
+  displayLog: process.env.NODE_ENV === 'production',
+}

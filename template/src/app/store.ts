@@ -5,14 +5,17 @@ import devToolsEnhancer from 'remote-redux-devtools'
 const reduxStore = configureStore({
   reducer: rootReducer,
   devTools: false,
-  enhancers: [
-    devToolsEnhancer({
-      realtime: true,
-      name: 'Overwolf ',
-      hostname: 'localhost',
-      port: 8000,
-    }),
-  ],
+  enhancers:
+    process.env.NODE_ENV === 'development'
+      ? [
+          devToolsEnhancer({
+            realtime: true,
+            name: 'Overwolf ',
+            hostname: 'localhost',
+            port: 8000,
+          }),
+        ]
+      : [],
 })
 
 declare global {
@@ -23,7 +26,10 @@ declare global {
 
 window.reduxStore = reduxStore
 
-const { reduxStore: store } = overwolf.windows.getMainWindow()
+const { reduxStore: store } =
+  process.env.NODE_ENV === 'development'
+    ? { reduxStore }
+    : overwolf.windows.getMainWindow()
 
 export type AppDispatch = typeof store.dispatch
 export default store
