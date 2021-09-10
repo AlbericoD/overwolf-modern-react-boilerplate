@@ -1,50 +1,46 @@
-import React, { FC, useCallback, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import React, { FC, useCallback, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 
-import { WINDOW_NAMES } from "app/constants";
-import { setEvent, setInfo } from "./background-slice";
-import {
-  useWindow,
-  useGameEventProvider,
-  useRunningGame,
-} from "overwolf-hooks";
+import { WINDOW_NAMES, REQUIRED_FEATURES } from 'app/constants'
+import { setEvent, setInfo } from './background-slice'
+import { useWindow, useGameEventProvider, useRunningGame } from 'overwolf-hooks'
 
-const { DESKTOP, INGAME } = WINDOW_NAMES;
+const { DESKTOP, INGAME } = WINDOW_NAMES
 
+//Hearthstone Game Event Provider
 enum Game {
-  "GameExample" = 99999,
+  'Hearhtstone' = 9898,
 }
-const gameFeatures = ["kill", "match"];
 
 const BackgroundWindow: FC = () => {
-  const [currentGame] = useRunningGame();
-  const [desktopWindow] = useWindow(DESKTOP);
-  const [ingameWindow] = useWindow(INGAME);
+  const [currentGame] = useRunningGame()
+  const [desktopWindow] = useWindow(DESKTOP)
+  const [ingameWindow] = useWindow(INGAME)
   const [{ event, info }, setGameFeatures] = useGameEventProvider<
     GameExample.Info,
     GameExample.Event
-  >();
-  const dispatch = useDispatch();
+  >()
+  const dispatch = useDispatch()
 
   const openStartupWindow = useCallback(() => {
     const gameRunning =
-      currentGame?.id === Game.GameExample && currentGame?.gameRunning;
-    const currentWindow = gameRunning ? ingameWindow : desktopWindow;
-    gameRunning && setGameFeatures(gameFeatures);
-    currentWindow?.restore();
-  }, [desktopWindow, ingameWindow, currentGame, setGameFeatures]);
+      currentGame?.id === Game.Hearhtstone && currentGame?.gameRunning
+    const currentWindow = gameRunning ? ingameWindow : desktopWindow
+    gameRunning && setGameFeatures(REQUIRED_FEATURES)
+    currentWindow?.restore()
+  }, [desktopWindow, ingameWindow, currentGame, setGameFeatures])
 
   useEffect(() => {
-    event && dispatch(setEvent({ event }));
-  }, [event, dispatch]);
+    event && dispatch(setEvent({ event }))
+  }, [event, dispatch])
   useEffect(() => {
-    info && dispatch(setInfo({ info }));
-  }, [info, dispatch]);
+    info && dispatch(setInfo({ info }))
+  }, [info, dispatch])
   useEffect(() => {
-    openStartupWindow();
-  }, [openStartupWindow]);
+    openStartupWindow()
+  }, [openStartupWindow])
 
-  return <></>;
-};
+  return <></>
+}
 
-export default BackgroundWindow;
+export default BackgroundWindow

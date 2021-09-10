@@ -16,18 +16,18 @@
   "data": {
     "game_targeting": {
       "type": "dedicated",
-      "game_ids": [7764]
+      "game_ids": [9898]
     },
     "launch_events": [
       {
         "event": "GameLaunch",
         "event_data": {
-          "game_ids": [7764]
+          "game_ids": [9898]
         },
         "start_minimized": true
       }
     ],
-    "game_events": [7764],
+    "game_events": [9898],
     "start_window": "background",
     "windows": {
       "background": {
