@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, Suspense } from 'react'
 import { CurrentPage } from './CurrentPage'
+import { Loading } from 'components/Loading'
 import { WINDOW_NAMES } from './constants'
 import { getCurrentWindow } from 'utils'
 import './App.css'
@@ -26,5 +27,10 @@ export const App = () => {
     }
     preLoad()
   }, [])
-  return <CurrentPage page={page} />
+  //this is fallback for the loading current screen
+  return (
+    <Suspense fallback={<Loading />}>
+      <CurrentPage page={page} />
+    </Suspense>
+  )
 }

@@ -1,10 +1,16 @@
-import InGameWindow from 'features/inGameWindow/InGameWindow'
-import DesktopWindow from 'features/desktopWindow/DesktopWindow'
-import BackgroundWindow from 'features/backgroundWindow/BackgroundWindow'
+import { lazy } from 'react'
 import { WINDOW_NAMES } from './constants'
 
 //window name in manifest file
 const { BACKGROUND, DESKTOP, INGAME } = WINDOW_NAMES
+
+//lazy load window components, so that they are not loaded until they are needed
+//this is done to reduce the amount of time spent loading
+const BackgroundWindow = lazy(() =>
+  import('features/backgroundWindow/BackgroundWindow'),
+)
+const DesktopWindow = lazy(() => import('features/desktopWindow/DesktopWindow'))
+const InGameWindow = lazy(() => import('features/inGameWindow/InGameWindow'))
 
 interface ICurrentPageProps {
   page: string
