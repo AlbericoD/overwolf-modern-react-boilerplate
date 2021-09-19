@@ -30,9 +30,12 @@
             ]
         },
         "scripts": {
-            "pack-overwolf": "./create-production-overwolf-build.sh",
+            "pack-overwolf": "node create-production-overwolf-build",
+            "dist-overwolf": "tar -a -c -f dist.zip -C build *",
             "start-remote-devtools": "node remote-dev-redux-devtools",
-            "build:overwolf":"npm run build && npm run pack-overwolf"
+            "build:overwolf": "npm run build && npm run pack-overwolf && npm run dist-overwolf",
+            "create-opk": "tar -a -c -f dist-opk.zip -C build/app * && node create-opk"
+            
         },
         "homepage": "."
     }
