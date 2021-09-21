@@ -35,7 +35,6 @@
             "start-remote-devtools": "node remote-dev-redux-devtools",
             "build:overwolf": "npm run build && npm run pack-overwolf && npm run dist-overwolf",
             "create-opk": "tar -a -c -f dist-opk.zip -C build/app * && node create-opk"
-            
         },
         "homepage": "."
     }
