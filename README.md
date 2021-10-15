@@ -211,3 +211,10 @@ you need to create an optimized version of your code and the correct structure b
 - the generated code is located in `|--- build/**/.**`
 - Package all **build/** folders to .zip
 - just send your .zip code to the overwolf test team.
+
+4. **Edit Changelog**
+> To make it easier for users, contributors and overwolf team to see precisely what notable changes have been made between each release (or version) of the project.
+
+```shell
+$ vi project-root/CHANGELOG.md
+```
