@@ -2,11 +2,15 @@
   Overwolf Modern React Boilerplate
 </h1>
 <p align="center">
+  
   <a href="https://github.com/AlbericoD/overwolf-modern-react-boilerplate/blob/master/LICENSE">
     <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="OMRB is released under the MIT license." />
   </a>
   <a href="#contribution">
     <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs welcome!" />
+  </a>
+   <a href="https://github.com/AlbericoD/overwolf-modern-react-boilerplate/actions/workflows/publish-npm-package.yml">
+    <img src="https://github.com/AlbericoD/overwolf-modern-react-boilerplate/actions/workflows/publish-npm-package.yml/badge.svg?branch=master" alt="Publish NPM Package" />
   </a>
 </p>
 
