@@ -1,0 +1,66 @@
+name: 🚀 Build APP and release Overwolf OPK - Experimental
+
+on: 
+  push:
+    branches:
+      - 'master'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🔃 Checkout
+        uses: actions/checkout@v2
+
+      - name: ⚙️ Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+
+      - name: 🛠️ Install and build
+        run: |
+          npm ci
+          npm run build
+
+      - name: 📦 Zip dist files
+        id: pack
+        run: | 
+          npm run build:overwolf
+
+      - name: 📦 Read Current Version
+        id: read_current_version
+        run: |
+          content=`cat ./package.json`
+          # the following lines are only required for multi line json
+          content="${content//'%'/'%25'}"
+          content="${content//$'\n'/'%0A'}"
+          content="${content//$'\r'/'%0D'}"
+          # end of optional handling for multi line json
+          echo "::set-output name=packageJson::$content"
+
+      - name: 🛎️ Create release
+        run: |
+          gh release create ${{ env.VERSION }} -t "${{ env.NAME }}" ${{ env.FILES }}
+          echo "${{fromJson(steps.read_current_version.outputs.packageJson).version}}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VERSION: "v${{fromJson(steps.read_current_version.outputs.packageJson).version}}"
+          NAME: "App ${{fromJson(steps.read_current_version.outputs.packageJson).name}} v${{fromJson(steps.read_current_version.outputs.packageJson).version}}"
+          FILES: dist-opk.v${{fromJson(steps.read_current_version.outputs.packageJson).version}}.opk dist.v${{fromJson(steps.read_current_version.outputs.packageJson).version}}.zip
+
+  create-github-release:
+    name: Create GitHub Release
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Create Release Notes
+        uses: actions/github-script@v4.0.2
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            const { version } = require('./package.json');
+            const { data: {name, body} } = await github.request(`POST /repos/${{ github.repository }}/releases/generate-notes`, {
+              tag_name: `v${version}`
+            });
