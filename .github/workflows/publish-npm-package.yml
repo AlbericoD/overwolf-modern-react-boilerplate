@@ -46,6 +46,7 @@ jobs:
         run: |
           gh release create ${{ env.VERSION }} 
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VERSION: "v${{fromJson(steps.read_current_version.outputs.packageJson).version}}"
 
       - name: 🆕 Create Release Notes
