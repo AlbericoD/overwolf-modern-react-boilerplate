@@ -225,7 +225,7 @@ you need to create an optimized version of your code and the correct structure b
 $ vi project-root/CHANGELOG.md
 ```
 
-## 📦 🔃 🛎️  **CI/CD - Experimental**
+## 📦 🔃 🛎️ CI/CD - Experimental
 
 > throughout the development cycle testing or releasing small updates can become a bit tedious, so there is also a github action setting when you generate a new project, you don't actually need to do any extra steps if you use github, this means that whenever you add valid code to the main branch, then an automatic github action will do all the compiling and packaging steps automatically.
 
