@@ -87,15 +87,15 @@ For more information, please refer to:
 
 #### Desktop Window
 
-![Desktop Window](./doc/desktop-wn.png)
+![Desktop Window](https://raw.githubusercontent.com/AlbericoD/overwolf-modern-react-boilerplate/master/doc/desktop-wn.png)
 
 #### InGame Window - 1
 
-![Desktop Window](./doc/hearthstone-ingame.png)
+![Desktop Window](https://raw.githubusercontent.com/AlbericoD/overwolf-modern-react-boilerplate/master/doc/hearthstone-ingame.png)
 
 #### InGame Window - 2
 
-![Desktop Window](./doc/hearthstone-ingame-2.png)
+![Desktop Window](https://raw.githubusercontent.com/AlbericoD/overwolf-modern-react-boilerplate/master/doc/hearthstone-ingame-2.png)
 
 ## 💼 Project structure - Feature Folder.
 
@@ -229,20 +229,20 @@ $ vi project-root/CHANGELOG.md
 
 > throughout the development cycle testing or releasing small updates can become a bit tedious, so there is also a github action setting when you generate a new project, you don't actually need to do any extra steps if you use github, this means that whenever you add valid code to the main branch, then an automatic github action will do all the compiling and packaging steps automatically.
 
-About [ CI/CD File.yml](./template/.github/workflows/overwolf-opk.yml)
+About [ CI/CD File.yml](https://raw.githubusercontent.com/AlbericoD/overwolf-modern-react-boilerplate/master/template/.github/workflows/overwolf-opk.yml)
 
 check out some screenshots of what github actions looks like:
 
-![Overview](./doc/ci-overview.png)
+![Overview](https://raw.githubusercontent.com/AlbericoD/overwolf-modern-react-boilerplate/master/doc/ci-overview.png)
 --
-![Overview Details-1](./doc/ci-overview-details-1.png)
+![Overview Details-1](https://raw.githubusercontent.com/AlbericoD/overwolf-modern-react-boilerplate/master/doc/ci-overview-details-1.png)
 --
-![Overview Details-2](./doc/ci-overview-details-2.png)
+![Overview Details-2](https://raw.githubusercontent.com/AlbericoD/overwolf-modern-react-boilerplate/master/doc/ci-overview-details-2.png)
 --
-![Overview Release-1](./doc/ci-overview-release-1.png)
+![Overview Release-1](https://raw.githubusercontent.com/AlbericoD/overwolf-modern-react-boilerplate/master/doc/ci-overview-release-1.png)
 --
-![Overview Release-2](./doc/ci-overview-release-2.png)
+![Overview Release-2](https://raw.githubusercontent.com/AlbericoD/overwolf-modern-react-boilerplate/master/doc/ci-overview-release-2.png)
 --
-![Overview Release-3](./doc/ci-overview-release-3.png)
+![Overview Release-3](https://raw.githubusercontent.com/AlbericoD/overwolf-modern-react-boilerplate/master/doc/ci-overview-release-3.png)
 
 **in the near future the overwolf team will make available an API to publish an application, so just add a few lines of code at the end of the github actions and the build will be complete
