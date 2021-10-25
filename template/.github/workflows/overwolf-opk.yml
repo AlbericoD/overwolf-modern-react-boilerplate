@@ -43,6 +43,7 @@ jobs:
           gh release create ${{ env.VERSION }} -t "${{ env.NAME }}" ${{ env.FILES }}
           echo "${{fromJson(steps.read_current_version.outputs.packageJson).version}}"
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VERSION: "v${{fromJson(steps.read_current_version.outputs.packageJson).version}}"
           NAME: "App ${{fromJson(steps.read_current_version.outputs.packageJson).name}} v${{fromJson(steps.read_current_version.outputs.packageJson).version}}"
           FILES: dist-opk.v${{fromJson(steps.read_current_version.outputs.packageJson).version}}.opk dist.v${{fromJson(steps.read_current_version.outputs.packageJson).version}}.zip
