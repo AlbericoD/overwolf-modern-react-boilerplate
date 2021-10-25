@@ -13,8 +13,6 @@ jobs:
     steps:
       - name: 🔃 Checkout code
         uses: actions/checkout@v2
-      - name: Create Release Notes
-        uses: actions/github-script@v4.0.2
       - name: 📦 Read Current Version
         id: read_current_version
         run: |
@@ -32,6 +30,8 @@ jobs:
         env:
           VERSION: "v${{fromJson(steps.read_current_version.outputs.packageJson).version}}"
 
+      - name: 🆕 Create Release Notes
+        uses: actions/github-script@v4.0.2
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
