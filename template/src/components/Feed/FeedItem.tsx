@@ -1,3 +1,3 @@
-export function FeedItem({ content }: IFeedItemProps) {
-  return <li data-icon="🐺">{content}</li>
+export function FeedItem({ content }: FeedItemProps) {
+  return <li data-icon="🐺">{content}</li>;
 }

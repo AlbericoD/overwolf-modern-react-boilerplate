@@ -1,3 +1,3 @@
-interface ITitle {
-  color: 'red' | 'blue' | 'green' | 'white'
+interface TitleProps {
+  color: "red" | "blue" | "green" | "white";
 }

@@ -1,8 +1,8 @@
-interface IFeedProps {
-  title: string
-  data: Record<string, string>
+interface FeedProps {
+  title: string;
+  data: Record<string, string>;
 }
 
-interface IFeedItemProps {
-  content: string
+interface FeedItemProps {
+  content: string;
 }

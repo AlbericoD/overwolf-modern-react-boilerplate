@@ -1,5 +1,9 @@
-import { FC } from 'react'
+import { ReactNode } from "react";
 
-export const Title: FC<ITitle> = ({ color, children }) => {
-  return <h3 style={{ color }}>{children}</h3>
+interface Props extends TitleProps {
+  children: ReactNode;
 }
+
+export const Title = ({ color, children }: Props) => {
+  return <h3 style={{ color }}>{children}</h3>;
+};

@@ -1,7 +1,7 @@
-import { FeedItem } from './FeedItem'
-import './Feed.css'
+import { FeedItem } from "./FeedItem";
+import "./Feed.css";
 
-export function Feed({ title, data }: IFeedProps) {
+export function Feed({ title, data }: FeedProps) {
   return (
     <div className="feed-container">
       <p>{title}</p>
@@ -9,5 +9,5 @@ export function Feed({ title, data }: IFeedProps) {
         <FeedItem content={JSON.stringify(data, null, 2)} />
       </ul>
     </div>
-  )
+  );
 }

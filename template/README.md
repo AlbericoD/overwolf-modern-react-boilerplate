@@ -219,7 +219,7 @@ you need to create an optimized version of your code and the correct structure b
 - just send your .zip code to the overwolf test team.
 
 4. **Edit Changelog**
-> To make it easier for users, contributors and overwolf team to see precisely what notable changes have been made between each release (or version) of the project.
+   > To make it easier for users, contributors and overwolf team to see precisely what notable changes have been made between each release (or version) of the project.
 
 ```shell
 $ vi project-root/CHANGELOG.md
@@ -233,16 +233,16 @@ About [ CI/CD File.yml](https://raw.githubusercontent.com/AlbericoD/overwolf-mod
 
 check out some screenshots of what github actions looks like:
 
-![Overview](https://raw.githubusercontent.com/AlbericoD/overwolf-modern-react-boilerplate/master/doc/ci-overview.png)
---
-![Overview Details-1](https://raw.githubusercontent.com/AlbericoD/overwolf-modern-react-boilerplate/master/doc/ci-overview-details-1.png)
---
-![Overview Details-2](https://raw.githubusercontent.com/AlbericoD/overwolf-modern-react-boilerplate/master/doc/ci-overview-details-2.png)
---
-![Overview Release-1](https://raw.githubusercontent.com/AlbericoD/overwolf-modern-react-boilerplate/master/doc/ci-overview-release-1.png)
---
-![Overview Release-2](https://raw.githubusercontent.com/AlbericoD/overwolf-modern-react-boilerplate/master/doc/ci-overview-release-2.png)
---
+## ![Overview](https://raw.githubusercontent.com/AlbericoD/overwolf-modern-react-boilerplate/master/doc/ci-overview.png)
+
+## ![Overview Details-1](https://raw.githubusercontent.com/AlbericoD/overwolf-modern-react-boilerplate/master/doc/ci-overview-details-1.png)
+
+## ![Overview Details-2](https://raw.githubusercontent.com/AlbericoD/overwolf-modern-react-boilerplate/master/doc/ci-overview-details-2.png)
+
+## ![Overview Release-1](https://raw.githubusercontent.com/AlbericoD/overwolf-modern-react-boilerplate/master/doc/ci-overview-release-1.png)
+
+## ![Overview Release-2](https://raw.githubusercontent.com/AlbericoD/overwolf-modern-react-boilerplate/master/doc/ci-overview-release-2.png)
+
 ![Overview Release-3](https://raw.githubusercontent.com/AlbericoD/overwolf-modern-react-boilerplate/master/doc/ci-overview-release-3.png)
 
-**in the near future the overwolf team will make available an API to publish an application, so just add a few lines of code at the end of the github actions and the build will be complete
+\*\*in the near future the overwolf team will make available an API to publish an application, so just add a few lines of code at the end of the github actions and the build will be complete
