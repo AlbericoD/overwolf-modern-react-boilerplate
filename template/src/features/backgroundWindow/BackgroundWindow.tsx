@@ -12,7 +12,7 @@ const { DESKTOP, INGAME } = WINDOW_NAMES
 
 //Hearthstone Game Event Provider
 enum Game {
-  'HearhtStone' = 9898,
+  'HearthStone' = 9898,
 }
 
 const BackgroundWindow = () => {
@@ -27,7 +27,7 @@ const BackgroundWindow = () => {
 
   const openStartupWindow = useCallback(() => {
     const gameRunning =
-      currentGame?.id === Game.HearhtStone &&
+      currentGame?.id === Game.HearthStone &&
       (currentGame?.gameRunning || currentGame?.gameChanged)
     const currentWindow = gameRunning ? ingameWindow : desktopWindow
     gameRunning && setGameFeatures(REQUIRED_FEATURES)
