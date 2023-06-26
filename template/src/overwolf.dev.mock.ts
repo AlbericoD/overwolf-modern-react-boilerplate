@@ -1,5 +1,5 @@
-import { WINDOW_NAMES } from 'app/constants';
-import reduxStore from 'app/store';
+import { WINDOW_NAMES } from 'app/constants'
+import reduxStore from 'app/store'
 
 class MockGepMethods {
   static addListener(callback: (payload?: any) => void): void {
@@ -11,17 +11,17 @@ class MockGepMethods {
 }
 class MockCommonMethods {
   static addListener(callback: (payload?: any) => void): void {
-    callback();
+    callback()
   }
   static removeListener(callback: (payload?: any) => void): void {
-    callback();
+    callback()
   }
   static simpleRequestInterval(
     interval: number,
-    callback: overwolf.CallbackFunction<overwolf.Result>
+    callback: overwolf.CallbackFunction<overwolf.Result>,
   ): void {
-    console.info(`Callback interval ${interval}`);
-    callback({ success: true });
+    console.info(`Callback interval ${interval}`)
+    callback({ success: true })
   }
 }
 /**
@@ -46,9 +46,9 @@ const overwolfMock: typeof overwolf = {
     requestHardwareInfo: MockCommonMethods.simpleRequestInterval,
     requestProcessInfo: MockCommonMethods.simpleRequestInterval,
     requestPermissions: (
-      callback: overwolf.CallbackFunction<overwolf.Result>
+      callback: overwolf.CallbackFunction<overwolf.Result>,
     ) => {
-      callback({ success: true });
+      callback({ success: true })
     },
     stopRequesting: () => {},
   },
@@ -56,26 +56,28 @@ const overwolfMock: typeof overwolf = {
   settings: {
     language: {
       get: (
-        callback: (result: overwolf.settings.language.GetLanguageResult) => void
+        callback: (
+          result: overwolf.settings.language.GetLanguageResult,
+        ) => void,
       ) => {
-        console.info('get language');
-        callback({ language: 'en', success: true });
+        console.info('get language')
+        callback({ language: 'en', success: true })
       },
       onLanguageChanged: {
         addListener: (
           callback: (
-            payload: overwolf.settings.language.LanguageChangedEvent
-          ) => void
+            payload: overwolf.settings.language.LanguageChangedEvent,
+          ) => void,
         ) => {
-          console.log('onLanguageChanged addListener');
-          callback({ language: 'en' });
+          console.log('onLanguageChanged addListener')
+          callback({ language: 'en' })
         },
         removeListener: (
           callback: (
-            payload: overwolf.settings.language.LanguageChangedEvent
-          ) => void
+            payload: overwolf.settings.language.LanguageChangedEvent,
+          ) => void,
         ) => {
-          callback({ language: 'en' });
+          callback({ language: 'en' })
         },
       },
     },
@@ -83,37 +85,37 @@ const overwolfMock: typeof overwolf = {
   //@ts-ignore
   utils: {
     openUrlInDefaultBrowser: (url: string) => {
-      window.open(url);
+      window.open(url)
     },
   },
   //@ts-ignore
   windows: {
     getCurrentWindow(callback: (result: any) => void): void {
-      callback({ window: { name: WINDOW_NAMES.BACKGROUND }, success: true });
+      callback({ window: { name: WINDOW_NAMES.BACKGROUND }, success: true })
     },
     //@ts-ignore
     getMainWindow: () => ({ reduxStore }),
     //@ts-ignore
     obtainDeclaredWindow(
       windowName: string,
-      callback: (response: any) => void
+      callback: (response: any) => void,
     ): void {
-      callback({ window: { name: windowName }, success: true });
+      callback({ window: { name: windowName }, success: true })
     },
     //@ts-ignore
     restore(windowId: string, callback: (result: any) => void): void {
-      console.info('Mock restore ');
+      console.info('Mock restore ')
     },
     //@ts-ignore
     maximize(windowId: string, callback: (result: any) => void): void {
-      console.info('Mock maximize');
+      console.info('Mock maximize')
     },
     //@ts-ignore
     close(windowId: string, callback: () => void): void {
-      console.info('Mock close');
+      console.info('Mock close')
     }, //@ts-ignore
     minimize(windowId: string, callback: (result: any) => void): void {
-      console.info('Mock minimize');
+      console.info('Mock minimize')
     },
   },
   //@ts-ignore
@@ -126,10 +128,10 @@ const overwolfMock: typeof overwolf = {
       onError: MockGepMethods,
       setRequiredFeatures: (features, callback) => {
         //@ts-ignore
-        callback({ success: true, features });
+        callback({ success: true, features })
       },
       getInfo: (callback: (payload?: any) => void) => {
-        callback();
+        callback()
       },
     },
     onGameInfoUpdated: MockGepMethods,
@@ -140,7 +142,9 @@ const overwolfMock: typeof overwolf = {
       onMouseDown: MockCommonMethods,
       onMouseUp: MockCommonMethods,
       getMousePosition: (
-        callback: overwolf.CallbackFunction<overwolf.games.inputTracking.GetActivityResult>
+        callback: overwolf.CallbackFunction<
+          overwolf.games.inputTracking.GetActivityResult
+        >,
       ) => {
         callback({
           success: true,
@@ -158,16 +162,18 @@ const overwolfMock: typeof overwolf = {
               total: 0,
             },
           },
-        });
+        })
       },
       getActivityInformation: (
-        callback: overwolf.CallbackFunction<overwolf.games.inputTracking.GetActivityResult>
+        callback: overwolf.CallbackFunction<
+          overwolf.games.inputTracking.GetActivityResult
+        >,
       ) => {
         callback({
           success: true,
           activity: {
             aTime: 0,
-            apm: 0,
+            apm: -,
             iTime: 0,
             keyboard: {
               keys: [],
@@ -179,10 +185,12 @@ const overwolfMock: typeof overwolf = {
               total: 0,
             },
           },
-        });
+        })
       },
       getEyeTrackingInformation: (
-        callback: overwolf.CallbackFunction<overwolf.games.inputTracking.GetActivityResult>
+        callback: overwolf.CallbackFunction<
+          overwolf.games.inputTracking.GetActivityResult
+        >,
       ) => {
         callback({
           success: true,
@@ -200,16 +208,16 @@ const overwolfMock: typeof overwolf = {
               total: 0,
             },
           },
-        });
+        })
       },
       pauseEyeTracking: () => {},
       resumeEyeTracking: () => {},
     },
   },
-};
+}
 
 export default process.env.NODE_ENV !== 'production' &&
   Object.defineProperty(window, 'overwolf', {
     writable: true,
     value: overwolfMock,
-  });
+  })
