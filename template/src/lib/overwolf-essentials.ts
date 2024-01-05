@@ -1,3 +1,6 @@
+import { WINDOW_NAMES } from "app/constants";
+import { isDev } from "./utils";
+
 async function obtainDeclaredWindow(
   windowName: string
 ): Promise<overwolf.windows.WindowInfo> {
@@ -11,6 +14,25 @@ async function obtainDeclaredWindow(
     });
   });
 }
+
+async function getCurrentWindow() {
+  if (isDev) {
+    console.log(
+      `Running in dev mode, returning ${WINDOW_NAMES.DESKTOP} window, you can change this in src/lib/overwolf-essentials.ts: getCurrent`
+    );
+    Promise.resolve(WINDOW_NAMES.DESKTOP);
+  }
+  return new Promise<string>((resolve, reject) => {
+    overwolf.windows.getCurrentWindow((result) => {
+      if (result.success) {
+        resolve(result.window);
+      } else {
+        reject(result.error);
+      }
+    });
+  });
+}
+
 function getMonitorsList(): Promise<overwolf.utils.Display[]> {
   return new Promise<overwolf.utils.Display[]>((resolve) => {
     overwolf.utils.getMonitorsList((result) => {
@@ -19,4 +41,4 @@ function getMonitorsList(): Promise<overwolf.utils.Display[]> {
   });
 }
 
-export { obtainDeclaredWindow, getMonitorsList };
+export { obtainDeclaredWindow, getMonitorsList, getCurrentWindow };

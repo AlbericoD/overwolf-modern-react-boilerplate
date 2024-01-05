@@ -1,7 +1,12 @@
+import { log } from "./log";
+import { isDev } from "./utils";
+
 const enum ThirdPartyProvider {
   Google = "google",
   Spotify = "spotify",
   Twitch = "twitch",
+  Custom = "custom",
+  //...
 }
 
 function createUrl(provider: ThirdPartyProvider): string {
@@ -16,8 +21,8 @@ function createUrl(provider: ThirdPartyProvider): string {
 
 function loginWithThirdParty(provider: ThirdPartyProvider) {
   const url = createUrl(provider);
-  if (process.env.NODE_ENV === "development") {
-    console.log(`Redirecting to ${url}`);
+  if (isDev) {
+    log(`Redirecting to ${url}`, "src/lib/auth.ts", "loginWithThirdParty");
     window.open(url, "_blank");
   }
   overwolf.utils.openUrlInDefaultBrowser(url);

@@ -54,8 +54,8 @@ const getFileSize = (data: string): string => {
  * @param data The data to write to the file.
  * @returns A promise that resolves to a message indicating the status of the write operation.
  */
-const overwolfWriteFileContents = <T>(path: string, data: T): Promise<string> =>
-  new Promise((resolve) => {
+const overwolfWriteFileContents = <T>(path: string, data: T) =>
+  new Promise<string>((resolve) => {
     overwolf.io.writeFileContents(
       path,
       JSON.stringify(data),

@@ -2,7 +2,8 @@ import { useEffect, useState, Suspense } from "react";
 import { CurrentPage } from "./CurrentPage";
 import { Loading } from "components/Loading";
 import { WINDOW_NAMES } from "./constants";
-import { getCurrentWindow } from "lib";
+import { getCurrentWindow } from "lib/overwolf-essentials";
+import { log } from "lib/log";
 import "./App.css";
 
 //This is the main component of the app, it is the root of the app
@@ -12,20 +13,15 @@ export const App = () => {
   const [page, setPage] = useState<string>("");
 
   useEffect(() => {
-    async function preLoad() {
-      if (process.env.NODE_ENV === "development") {
-        //you can set the current window to dev if you want to see the dev page <Normal Browser>
-        setPage(WINDOW_NAMES.DESKTOP);
-      } else {
-        const currentWindow = await getCurrentWindow();
-        setPage(currentWindow);
-        console.info(
-          "[🐺 overwolf-modern-react-boilerplate][🧰 src/app/App.tsx][🔧 useEffect - preLoad]",
-          JSON.stringify({ currentWindow }, null, 2)
-        );
-      }
-    }
-    preLoad();
+    (async function preLoad() {
+      const currentWindow = await getCurrentWindow();
+      setPage(currentWindow);
+      log(
+        JSON.stringify({ currentWindow }, null, 2),
+        "src/app/App.tsx",
+        "useEffect - preLoad"
+      );
+    })();
   }, []);
   //this is fallback for the loading current screen
   return (

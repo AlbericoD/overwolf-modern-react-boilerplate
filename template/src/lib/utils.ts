@@ -94,6 +94,8 @@ const parseSafeJSON = <T>(data: string = ""): T | null => {
   }
 };
 
+const isDev = process.env.NODE_ENV === "development";
+
 export {
   classNames,
   formatDate,
@@ -102,4 +104,5 @@ export {
   normalizeName,
   parseSafeJSON,
   sleep,
+  isDev,
 };
