@@ -1,4 +1,4 @@
-import "./style/Stats.css";
+import "./styles/Stats.css";
 
 type StatsProps = {
   label: string;

@@ -16,4 +16,13 @@
   --font-size-small: 14px;
   --font-size-medium: 16px;
   --font-size-large: 18px;
+  --discord-color: #7289da;
+}
+button {
+  padding: 0;
+  border: none;
+}
+
+button:focus {
+  outline: none;
 }

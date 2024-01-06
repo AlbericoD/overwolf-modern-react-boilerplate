@@ -3,7 +3,7 @@ import { WINDOW_NAMES } from "./constants";
 import { log } from "console";
 
 //window name in manifest file
-const { BACKGROUND, DESKTOP, INGAME } = WINDOW_NAMES;
+const { BACKGROUND, DESKTOP, INGAME, NOTIFICATION } = WINDOW_NAMES;
 
 //lazy load window components, so that they are not loaded until they are needed
 //this is done to reduce the amount of time spent loading
@@ -12,6 +12,7 @@ const BackgroundScreen = lazy(
 );
 const DesktopScreen = lazy(() => import("screens/desktop/Screen"));
 const InGameScreen = lazy(() => import("screens/ingame/Screen"));
+const NotificationScreen = lazy(() => import("screens/notification/Screen"));
 
 type CurrentPageProps = {
   page: string;
@@ -27,6 +28,8 @@ export const CurrentPage = ({ page }: CurrentPageProps) => {
       return <DesktopScreen />;
     case INGAME:
       return <InGameScreen />;
+    case NOTIFICATION:
+      return <NotificationScreen />;
     default:
       log(
         `No screen found for: ${page}`,

@@ -1,6 +1,6 @@
 import { Stats } from "./Stats";
 import { useData } from "../hooks/useData";
-import "./style/Overview.css";
+import "./styles/Overview.css";
 
 export const Overview = () => {
   const { events, infos } = useData();

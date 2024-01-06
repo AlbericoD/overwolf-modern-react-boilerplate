@@ -1,0 +1,31 @@
+.desktop {
+  background-color: var(--background-color);
+}
+
+.desktop__container {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 15vh 65vh 15vh;
+  grid-template-areas:
+    "header header"
+    "main aside"
+    "footer footer";
+}
+
+.desktop__header {
+  background: var(--background-color);
+  grid-area: header;
+}
+.desktop__main {
+  background: var(--background-color);
+  grid-area: main;
+}
+.desktop__aside {
+  background: var(--background-color);
+  grid-area: aside;
+}
+
+.desktop__footer {
+  background: var(--background-color);
+  grid-area: footer;
+}

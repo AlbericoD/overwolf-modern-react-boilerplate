@@ -2,7 +2,7 @@ import { RootReducer } from "app/rootReducer";
 import { Feed } from "components/Feed";
 import { Title } from "components/Title/Title";
 import { useSelector } from "react-redux";
-import "./Screen.css";
+import "./styles/Screen.css";
 
 const Screen = () => {
   const { event, info } = useSelector((state: RootReducer) => state.background);

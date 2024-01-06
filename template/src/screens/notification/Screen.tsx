@@ -1,6 +1,6 @@
 import { Title } from "components/Title/Title";
 import { Overview } from "features/overview";
-import "./InGame.css";
+import "./styles/Screen.css";
 
 const Screen = () => {
   return (
