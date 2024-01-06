@@ -1,10 +1,9 @@
 import { useEffect, useState, Suspense } from "react";
 import { CurrentPage } from "./CurrentPage";
 import { Loading } from "components/Loading";
-import { WINDOW_NAMES } from "./constants";
 import { getCurrentWindow } from "lib/overwolf-essentials";
 import { log } from "lib/log";
-import "./App.css";
+import "./root.css";
 
 //This is the main component of the app, it is the root of the app
 //each Page component is rendered in a different window

@@ -25,7 +25,7 @@ async function getCurrentWindow() {
   return new Promise<string>((resolve, reject) => {
     overwolf.windows.getCurrentWindow((result) => {
       if (result.success) {
-        resolve(result.window);
+        resolve(result.window.name);
       } else {
         reject(result.error);
       }

@@ -54,7 +54,7 @@ const getFileSize = (data: string): string => {
  * @param data The data to write to the file.
  * @returns A promise that resolves to a message indicating the status of the write operation.
  */
-const overwolfWriteFileContents = <T>(path: string, data: T) =>
+const writeFileContents = <T>(path: string, data: T) =>
   new Promise<string>((resolve) => {
     overwolf.io.writeFileContents(
       path,
@@ -62,6 +62,7 @@ const overwolfWriteFileContents = <T>(path: string, data: T) =>
       "UTF8" as overwolf.io.enums.eEncoding.UTF8,
       false,
       (status) => {
+        if (!status.success) resolve(status.error ?? "Unknown error");
         const message = `Saved in ${path} with status ${status}, data size: ${getFileSize(
           JSON.stringify(data)
         )}`;
@@ -74,5 +75,5 @@ export {
   getExtensionPath,
   readFilesPathAvailable,
   getLocalAppData,
-  overwolfWriteFileContents,
+  writeFileContents,
 };

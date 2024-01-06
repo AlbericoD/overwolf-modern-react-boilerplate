@@ -1,0 +1,19 @@
+.stats {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.stats__label {
+  font-size: var(--font-size-small);
+  font-weight: 700;
+  color: var(--primary-color-text);
+}
+
+.stats__value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--secondary-color-text);
+}
