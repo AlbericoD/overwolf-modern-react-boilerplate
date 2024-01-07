@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect } from "react";
-import { WINDOW_NAMES, OVERWOLF_HOOKS_OPTIONS } from "app/constants";
+import { WINDOW_NAMES, OVERWOLF_HOOKS_OPTIONS } from "app/shared/constants";
 import { useWindow, useDrag } from "overwolf-hooks";
 import { classNames, isDev } from "lib/utils";
 import { SVGComponent } from "./DesktopHeaderSVG";

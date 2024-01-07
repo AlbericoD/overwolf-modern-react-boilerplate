@@ -1,4 +1,4 @@
-import { RootReducer } from "app/rootReducer";
+import { RootReducer } from "app/shared/rootReducer";
 import { Feed } from "components/Feed";
 import { Title } from "components/Title/Title";
 import { useSelector } from "react-redux";

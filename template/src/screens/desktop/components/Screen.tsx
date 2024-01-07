@@ -1,7 +1,7 @@
 import { Title } from "components/Title/Title";
 import { useTranslation } from "react-i18next";
 import { DesktopHeader } from "./DesktopHeader";
-import "./styles/DesktopWindow.css";
+import "./styles/Screen.css";
 
 //avoid the use of static text, use i18n instead, each language has its own text, and the text is stored in the
 //locales folder in the project root

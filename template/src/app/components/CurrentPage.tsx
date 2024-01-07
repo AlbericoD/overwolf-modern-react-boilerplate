@@ -1,18 +1,16 @@
+import { log } from "lib/log";
 import { lazy } from "react";
-import { WINDOW_NAMES } from "./constants";
-import { log } from "console";
+import { WINDOW_NAMES } from "../shared/constants";
 
 //window name in manifest file
 const { BACKGROUND, DESKTOP, INGAME, NOTIFICATION } = WINDOW_NAMES;
 
 //lazy load window components, so that they are not loaded until they are needed
 //this is done to reduce the amount of time spent loading
-const BackgroundScreen = lazy(
-  () => import("features/background/BackgroundScreen")
-);
-const DesktopScreen = lazy(() => import("screens/desktop/Screen"));
-const InGameScreen = lazy(() => import("screens/ingame/Screen"));
-const NotificationScreen = lazy(() => import("screens/notification/Screen"));
+const BackgroundScreen = lazy(() => import("screens/background/Screen"));
+const DesktopScreen = lazy(() => import("screens/desktop"));
+const InGameScreen = lazy(() => import("screens/ingame"));
+const NotificationScreen = lazy(() => import("screens/notification"));
 
 type CurrentPageProps = {
   page: string;

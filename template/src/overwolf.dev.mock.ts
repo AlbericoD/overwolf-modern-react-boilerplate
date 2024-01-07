@@ -1,5 +1,5 @@
-import { WINDOW_NAMES } from "app/constants";
-import reduxStore from "app/store";
+import { WINDOW_NAMES } from "app/shared/constants";
+import reduxStore from "app/shared/store";
 
 class MockGepMethods {
   static addListener(callback: (payload?: any) => void): void {

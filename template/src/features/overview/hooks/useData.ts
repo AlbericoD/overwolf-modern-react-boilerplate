@@ -1,4 +1,4 @@
-import { RootReducer } from "app/rootReducer";
+import { RootReducer } from "app/shared/rootReducer";
 import { useMemo } from "react";
 import { useSelector } from "react-redux";
 

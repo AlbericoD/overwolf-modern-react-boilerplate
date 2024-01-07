@@ -3,7 +3,7 @@ import { CurrentPage } from "./CurrentPage";
 import { Loading } from "components/Loading";
 import { getCurrentWindow } from "lib/overwolf-essentials";
 import { log } from "lib/log";
-import "./root.css";
+import "../shared/root.css";
 
 //This is the main component of the app, it is the root of the app
 //each Page component is rendered in a different window

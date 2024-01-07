@@ -1,5 +1,6 @@
-import { WINDOW_NAMES } from "app/constants";
+import { WINDOW_NAMES } from "app/shared/constants";
 import { isDev } from "./utils";
+import { log } from "./log";
 
 async function obtainDeclaredWindow(
   windowName: string
@@ -17,10 +18,12 @@ async function obtainDeclaredWindow(
 
 async function getCurrentWindow() {
   if (isDev) {
-    console.log(
-      `Running in dev mode, returning ${WINDOW_NAMES.DESKTOP} window, you can change this in src/lib/overwolf-essentials.ts: getCurrent`
+    log(
+      `Running in dev mode, returning ${WINDOW_NAMES.DESKTOP} window, you can change this in src/lib/overwolf-essentials.ts: getCurrent`,
+      "src/lib/overwolf-essentials.ts",
+      "getCurrentWindow"
     );
-    Promise.resolve(WINDOW_NAMES.DESKTOP);
+    return Promise.resolve(WINDOW_NAMES.DESKTOP);
   }
   return new Promise<string>((resolve, reject) => {
     overwolf.windows.getCurrentWindow((result) => {
