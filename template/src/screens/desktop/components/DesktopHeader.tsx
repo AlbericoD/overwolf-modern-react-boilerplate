@@ -1,5 +1,8 @@
 import { useState, useCallback, useEffect } from "react";
-import { WINDOW_NAMES, OVERWOLF_HOOKS_OPTIONS } from "app/shared/constants";
+import {
+  WINDOW_NAMES,
+  DISPLAY_OVERWOLF_HOOKS_LOGS,
+} from "app/shared/constants";
 import { useWindow, useDrag } from "overwolf-hooks";
 import { classNames, isDev } from "lib/utils";
 import { SVGComponent } from "./DesktopHeaderSVG";
@@ -14,11 +17,11 @@ const handleDiscordClick = () => {
 
 export const DesktopHeader = () => {
   const [maximized, setMaximize] = useState(false);
-  const [desktopWindow] = useWindow(DESKTOP, OVERWOLF_HOOKS_OPTIONS);
-  const [backgroundWindow] = useWindow(BACKGROUND, OVERWOLF_HOOKS_OPTIONS);
+  const [desktopWindow] = useWindow(DESKTOP, DISPLAY_OVERWOLF_HOOKS_LOGS);
+  const [backgroundWindow] = useWindow(BACKGROUND, DISPLAY_OVERWOLF_HOOKS_LOGS);
   const { onDragStart, onMouseMove, setCurrentWindowID } = useDrag(
     null,
-    OVERWOLF_HOOKS_OPTIONS
+    DISPLAY_OVERWOLF_HOOKS_LOGS
   );
 
   const toggleIcon = useCallback(() => {
@@ -41,9 +44,9 @@ export const DesktopHeader = () => {
       onMouseMove={onMouseMove}
     >
       <SVGComponent />
-      <h3 className={"header__title"}>
+      <h1 className={"header__title"}>
         🐺 ICON - OVERWOLF-MODERN-REACT-BOILERPLATE-V4
-      </h3>
+      </h1>
       <div className={"header__controls__group"}>
         <button
           className={classNames("header__icon header__control header__discord")}

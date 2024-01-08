@@ -1,4 +1,9 @@
 :root {
+  --neutral-1: #262626;
+  --neutral-2: #404040;
+  --neutral-3: #525252;
+  --neutral-4: #a1a1aa;
+
   --primary-color: #1976d2;
   --primary-color-light: #63a4ff;
   --primary-color-dark: #004ba0;
@@ -9,7 +14,7 @@
   --secondary-color-text: #ffffff;
   --disabled-color: #666666;
   --error-color: #b00020;
-  --background-color: #ffffff;
+  --background-color: #171717;
   --font-family: "Roboto", sans-serif;
   --font-size: 16px;
   --font-weight: 400;
@@ -18,6 +23,20 @@
   --font-size-large: 18px;
   --discord-color: #7289da;
 }
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
+  color: var(--primary-color-text);
+  background-color: var(--background-color);
+}
+
 button {
   padding: 0;
   border: none;

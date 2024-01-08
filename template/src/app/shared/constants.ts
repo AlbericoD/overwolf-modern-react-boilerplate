@@ -11,6 +11,7 @@ export const REQUIRED_FEATURES = [
   "match",
   "match-info",
 ];
+export const RETRY_TIMES = 10;
 
 // register gep events
 export const REGISTER_RETRY_TIMEOUT = 10000;
@@ -24,7 +25,4 @@ export const WINDOW_NAMES = {
   NOTIFICATION: "notification",
 };
 
-//overwolf-hooks logs
-export const OVERWOLF_HOOKS_OPTIONS = {
-  displayLog: process.env.NODE_ENV === "production",
-};
+export const DISPLAY_OVERWOLF_HOOKS_LOGS = true;

@@ -12,20 +12,20 @@ const Screen = () => {
     <div className='desktop'>
       <DesktopHeader />
       <div className={"desktop__container"}>
-        <header className={"desktop__header"}>
+        <header className={"desktop__header desktop__fit"}>
           <Title color='white'>
             Current Locale: <b>{t("common.language")} 🌐</b>
             <br />
             {t("components.desktop.header")}
           </Title>
         </header>
-        <main className={"desktop__main"}>
+        <main className={"desktop__main desktop__fit"}>
           <Title color='white'>{t("components.desktop.main")}</Title>
         </main>
-        <aside className={"desktop__aside"}>
+        <aside className={"desktop__aside desktop__fit"}>
           <Title color='white'>{t("components.desktop.aside")}</Title>
         </aside>
-        <footer className={"desktop__footer"}>
+        <footer className={"desktop__footer desktop__fit"}>
           <Title color='white'>{t("components.desktop.footer")}</Title>
         </footer>
       </div>

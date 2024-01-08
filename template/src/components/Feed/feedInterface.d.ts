@@ -1,6 +1,6 @@
 interface FeedProps {
   title: string;
-  data: Record<string, string>;
+  data: string;
 }
 
 interface FeedItemProps {

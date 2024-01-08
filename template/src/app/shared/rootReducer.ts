@@ -1,9 +1,9 @@
-import { combineReducers } from '@reduxjs/toolkit'
-import backgroundReducer from 'features/backgroundWindow/backgroundSlice'
+import { combineReducers } from "@reduxjs/toolkit";
+import background from "screens/background/stores/background";
 
 const rootReducer = combineReducers({
-  background: backgroundReducer,
-})
+  background,
+});
 
-export type RootReducer = ReturnType<typeof rootReducer>
-export default rootReducer
+export type RootReducer = ReturnType<typeof rootReducer>;
+export default rootReducer;

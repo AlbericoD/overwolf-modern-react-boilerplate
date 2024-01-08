@@ -12,16 +12,25 @@
     "footer footer";
 }
 
+.desktop__fit {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
 .desktop__header {
-  background: var(--background-color);
+  background: var(--neutral-1);
   grid-area: header;
 }
 .desktop__main {
-  background: var(--background-color);
+  background: var(--neutral-2);
   grid-area: main;
 }
 .desktop__aside {
-  background: var(--background-color);
+  background: var(--neutral-3);
   grid-area: aside;
 }
 
