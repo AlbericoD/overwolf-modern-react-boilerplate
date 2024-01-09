@@ -1,11 +1,11 @@
 import "./overwolf.dev.mock";
-import store from "app/store";
+import store from "app/shared/store";
 import i18next from "i18next";
 import { resources } from "locales";
 import { createRoot } from "react-dom/client";
 import { initReactI18next } from "react-i18next";
 import { Provider } from "react-redux";
-import { App } from "./app/App";
+import { App } from "./app/components/App";
 import reportWebVitals from "./reportWebVitals";
 
 const container = document.getElementById("root");

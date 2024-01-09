@@ -1,0 +1,34 @@
+:root {
+  --neutral-1: #262626;
+  --neutral-2: #404040;
+  --neutral-3: #525252;
+  --neutral-4: #a1a1aa;
+
+  --primary-color: #1976d2;
+  --primary-color-light: #63a4ff;
+  --primary-color-dark: #004ba0;
+  --primary-color-text: #ffffff;
+  --secondary-color: #c2185b;
+  --secondary-color-light: #fa5788;
+  --secondary-color-dark: #8c0032;
+  --secondary-color-text: #ffffff;
+  --disabled-color: #666666;
+  --error-color: #b00020;
+  --background-color: #171717;
+  --font-family: "Roboto", sans-serif;
+  --font-size: 16px;
+  --font-weight: 400;
+  --font-size-small: 14px;
+  --font-size-medium: 16px;
+  --font-size-large: 18px;
+  --discord-color: #7289da;
+}
+
+button {
+  padding: 0;
+  border: none;
+}
+
+button:focus {
+  outline: none;
+}

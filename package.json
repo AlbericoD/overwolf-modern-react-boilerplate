@@ -32,6 +32,10 @@
     "template.json"
   ],
   "engines": {
-    "node": ">=10"
+    "node": "lts/*"
+  },
+  "devDependencies": {
+    "@semantic-release/git": "^10.0.1",
+    "semantic-release": "^22.0.12"
   }
 }

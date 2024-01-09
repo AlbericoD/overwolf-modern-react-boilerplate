@@ -1,0 +1,6 @@
+.ingame {
+  overflow: hidden;
+  max-height: 400px;
+  max-width: 350px;
+  background-color: transparent;
+}
