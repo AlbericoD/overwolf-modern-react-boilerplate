@@ -1,6 +1,6 @@
 {
   "name": "cra-template-overwolf-typescript-redux",
-  "version": "3.0.3",
+  "version": "3.1.0",
   "description": "This is the official [Overwolf TypeScript Redux](https://github.com/AlbericoD/overwolf-modern-react-boilerplate) template for [Create React App](https://github.com/facebook/create-react-app).",
   "main": "template.json",
   "scripts": {
