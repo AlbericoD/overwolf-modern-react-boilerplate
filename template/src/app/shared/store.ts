@@ -1,10 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
+import { devToolsEnhancer } from "@redux-devtools/remote";
 import reducer from "./rootReducer";
 import { isDev } from "lib/utils";
 
 const reduxStore = configureStore({
   reducer,
-  devTools: true,
+  devTools: false,
+  enhancers: (getDefaultEnchancers) =>
+    getDefaultEnchancers().concat(
+      devToolsEnhancer({  port: 8081 })
+    ),
 });
 
 declare global {

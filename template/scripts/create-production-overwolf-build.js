@@ -2,21 +2,17 @@ const fs = require("fs");
 const path = require("path");
 const { existsSync, mkdirSync, renameSync } = fs;
 
-console.log("Init overwolf build");
+console.info("%cInit overwolf build", "color: green; font-weight: bold;");
 
-const currentDir = __dirname;
+const currentDir = `${__dirname}/../`;
 
 const fileDir = path.join(currentDir, "build");
-const buildDir = path.join(fileDir, "app", "Files");
+const buildDir = path.join(fileDir, "Files");
 
 // Creating Files directory if doesn't exists
 if (!existsSync(buildDir)) {
   mkdirSync(buildDir);
 }
-
-// Moving index.html and static folder
-const index = "index.html";
-const static = "static";
 
 const customRename = (name) => {
   const oldPath = path.join(fileDir, name);
@@ -24,7 +20,7 @@ const customRename = (name) => {
   renameSync(oldPath, newPath);
 };
 
-customRename(index);
-customRename(static);
+// Renaming files
+["index.html", "static"].forEach(customRename);
 
-console.log("Compiled successfully!");
+console.info("%cCompiled successfully!", "color: green; font-weight: bold;");

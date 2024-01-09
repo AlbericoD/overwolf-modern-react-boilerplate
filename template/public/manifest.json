@@ -2,8 +2,8 @@
   "manifest_version": 1,
   "type": "WebApp",
   "meta": {
-    "name": "Overwolf Modern React Boilerplate-v3",
-    "version": "3.0.0",
+    "name": "Overwolf Modern React Boilerplate-v4",
+    "version": "4.0.0",
     "minimum-overwolf-version": "0.120.0",
     "author": "Albérico Dias Barreto Filho",
     "icon": "IconMouseOver.png",
@@ -12,22 +12,30 @@
     "window_icon": "TaskbarIcon.png",
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
   },
-  "permissions": ["GameInfo"],
+  "permissions": [
+    "GameInfo"
+  ],
   "data": {
     "game_targeting": {
       "type": "dedicated",
-      "game_ids": [9898]
+      "game_ids": [
+        9898
+      ]
     },
     "launch_events": [
       {
         "event": "GameLaunch",
         "event_data": {
-          "game_ids": [9898]
+          "game_ids": [
+            9898
+          ]
         },
         "start_minimized": true
       }
     ],
-    "game_events": [9898],
+    "game_events": [
+      9898
+    ],
     "start_window": "background",
     "windows": {
       "background": {

@@ -24,19 +24,6 @@
   --discord-color: #7289da;
 }
 
-html,
-body {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  font-family: var(--font-family);
-  font-size: var(--font-size);
-  font-weight: var(--font-weight);
-  color: var(--primary-color-text);
-  background-color: var(--background-color);
-}
-
 button {
   padding: 0;
   border: none;

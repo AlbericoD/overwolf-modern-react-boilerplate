@@ -53,7 +53,7 @@
 
 - **Build.** Folders and structure ready for use in the overwolf store.
 
-- **CI/CD - Experimental** continuous development, continuous testing, continuous integration, continuous deployment
+- **CI/CD** continuous development, continuous testing, continuous integration, continuous deployment
 
 ---
 
@@ -83,19 +83,19 @@ For more information, please refer to:
 
 ## 📸 Screenshot
 
-> In this version the project is configured and ready to test with the Hearthstone game, you can use the template, compile and test without modifying anything to understand the development flow.
+> this version the project is configured and ready to test with the Hearthstone game, you can use the template, compile and test without modifying anything to understand the development flow.
 
 #### Desktop Window
 
-![Desktop Window](https://raw.githubusercontent.com/AlbericoD/overwolf-modern-react-boilerplate/master/doc/desktop-wn.png)
+![Desktop Window](./doc/desktop-1.png)
 
 #### InGame Window - 1
 
-![Desktop Window](https://raw.githubusercontent.com/AlbericoD/overwolf-modern-react-boilerplate/master/doc/hearthstone-ingame.png)
+![Ingame Window 1](./doc/ingame-1.png)
 
 #### InGame Window - 2
 
-![Desktop Window](https://raw.githubusercontent.com/AlbericoD/overwolf-modern-react-boilerplate/master/doc/hearthstone-ingame-2.png)
+![Ingame Window 2](./doc/ingame-2.png)
 
 ## 💼 Project structure - Feature Folder.
 
@@ -104,28 +104,18 @@ Folder-by-type only works on small-scale projects. Folder-by-feature is superior
 ```text
 .
 |--- public
-|    |--- app/
-|    |-------IconMouseNormal.png
-|    |-------IconMouseOver.png
-|    |-------TaskbarIcon.png
-|    |-------desktop-icon.ico
-|    |-------manifest.json
-|    |--- store/
-|    |-------description.txt
-|    |-------store.json
-|    |--- index.html
+|---- # essencial files for overwolf store
 |--- src
 |    |--- app/
-|    |-------App.css
-|    |-------App.tsx
-|    |-------constants.ts
-|    |-------CurrentPage.tsx
-|    |-------rootReducer.ts
-|    |-------store.ts
-|    |----utils/*/**/.ts
-|    |--- components/*/**.tsx
-|    |--- features/*/**.tsx
-|    |--- typings/*/**.d.ts
+|    |----# global and shared components
+|    |----lib/
+|    |----# global and shared functions
+|    |--- components/
+|    |----# components that are not part of the application's business rule and can be reused in other features
+|    |--- features/
+|    |----# features that are part of the application's business rule and can be reused in other features
+|    |--- screens/
+|    |----# screens that are part of each entry point of the application from the ovewolf manifest
 |    |--- locales/
 |    |-----------de/**/*.json
 |    |-----------de/index.ts
@@ -155,10 +145,8 @@ Folder-by-type only works on small-scale projects. Folder-by-feature is superior
 |--- .gitignore
 |--- LICENSE
 |--- README.md
-|--- create-production-overwolf-build.sh
 |--- package-lock.json
 |--- package.json
-|--- remote-dev-redux-devtools.js
 |--- tsconfig.json
 .
 ```
@@ -176,15 +164,14 @@ In overwolf it is not possible to install plugins to debug the code, so the alte
 
 - if the installation is correct, a redux dev tools icon should appear in your browser's toolbar.
 - click into icon then choose **"Open remote devTools"**
-- click into settings option and let hostname called to **"localhost"** and port **8000**.
+- click into settings option and let hostname called to **"localhost"** and port **8081**.
 
 3. **Run Server Bridge**
 
 - run the server that bridges the remote redux and the overwolf application.
   ```shell
-  #Change into directory
   cd overwolf-modern-react-boilerplate
-  npm run start-remote-devtools
+  npm run start-remote-server
   ```
 
 4. **Start debugging**
@@ -200,49 +187,51 @@ you need to create an optimized version of your code and the correct structure b
    ```shell
    #Change into directory
    cd overwolf-modern-react-boilerplate
-   npm run build
+   npm run build:overwolf
    ```
 
-2. **Organize Folder**
+2. **Edit Changelog**
 
-```shell
-   npm run pack-overwolf
-```
+   > To make it easier for users, contributors and overwolf team to see precisely what notable changes have been made between each release (or version) of the project.
 
-- **OBS 1** this organization script was tested on the git bash and linux terminal.
-- **OBS 2** this organization script needs to be ported to windows bash powershell.
-
-3. **Create .zip**
+3. **Send .zip** (if it is the first time you are sending the app, you need to send the .zip file to the overwolf team, so that they can create the app in the store)
 
 - the generated code is located in `|--- build/**/.**`
-- Package all **build/** folders to .zip
-- just send your .zip code to the overwolf test team.
-
-4. **Edit Changelog**
-   > To make it easier for users, contributors and overwolf team to see precisely what notable changes have been made between each release (or version) of the project.
+- Package all **build/** folders to .zip _(the command above already does this for you)_
+- just send your .zip code to the overwolf test team. _(package.vx.x.x.zip)_
 
 ```shell
 $ vi project-root/CHANGELOG.md
 ```
 
-## 📦 🔃 🛎️ CI/CD - Experimental
+## 📦 🔃 🛎️ CI/CD
 
 > throughout the development cycle testing or releasing small updates can become a bit tedious, so there is also a github action setting when you generate a new project, you don't actually need to do any extra steps if you use github, this means that whenever you add valid code to the main branch, then an automatic github action will do all the compiling and packaging steps automatically.
 
 About [ CI/CD File.yml](https://raw.githubusercontent.com/AlbericoD/overwolf-modern-react-boilerplate/master/template/.github/workflows/overwolf-opk.yml)
 
-check out some screenshots of what github actions looks like:
+## Configure Github Actions with secrets and environment variables
 
-## ![Overview](https://raw.githubusercontent.com/AlbericoD/overwolf-modern-react-boilerplate/master/doc/ci-overview.png)
+### variables
 
-## ![Overview Details-1](https://raw.githubusercontent.com/AlbericoD/overwolf-modern-react-boilerplate/master/doc/ci-overview-details-1.png)
+| Name                | Description         | type   |
+| ------------------- | ------------------- | ------ |
+| PRE_RELEASE_CHANNEL | overwolf channel id | number |
 
-## ![Overview Details-2](https://raw.githubusercontent.com/AlbericoD/overwolf-modern-react-boilerplate/master/doc/ci-overview-details-2.png)
+> Note: Test Channel IDs from overwolf-cli
+> Several commands work with test channels. While we plan to accept the channel's name, for now, we expect to receive the channel ID as the argument. You can find the channel's ID in the page URL of the channel in the Dev Console.
 
-## ![Overview Release-1](https://raw.githubusercontent.com/AlbericoD/overwolf-modern-react-boilerplate/master/doc/ci-overview-release-1.png)
+### secrets
 
-## ![Overview Release-2](https://raw.githubusercontent.com/AlbericoD/overwolf-modern-react-boilerplate/master/doc/ci-overview-release-2.png)
+| Name           | Description          | type   |
+| -------------- | -------------------- | ------ |
+| OW_CLI_EMAIL   | overwolf dev email   | string |
+| OW_CLI_API_KEY | overwolf dev api key | string |
 
-![Overview Release-3](https://raw.githubusercontent.com/AlbericoD/overwolf-modern-react-boilerplate/master/doc/ci-overview-release-3.png)
+> Check out some screenshots of what github actions looks like:
 
-\*\*in the near future the overwolf team will make available an API to publish an application, so just add a few lines of code at the end of the github actions and the build will be complete
+![label](./doc/ci-1.png)
+
+![label](./doc/ci-2.png)
+
+![label](./doc/ci-3.png)

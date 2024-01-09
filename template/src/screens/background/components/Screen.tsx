@@ -9,6 +9,7 @@ import { useCallback, useEffect } from "react";
 import { HEARTHSTONE_CLASS_ID, getHearthstoneGame } from "lib/games";
 import { setInfo, setEvent } from "../stores/background";
 import store from "app/shared/store";
+import { log } from "lib/log";
 
 const { DESKTOP, INGAME } = WINDOW_NAMES;
 
@@ -24,15 +25,16 @@ const BackgroundWindow = () => {
     RETRY_TIMES,
     DISPLAY_OVERWOLF_HOOKS_LOGS
   );
-
   const startApp = useCallback(
     async (reason: string) => {
-      console.log("init app is called", reason);
+      //if the desktop or ingame window is not ready we don't want to start the app
+      if (!desktop || !ingame) return;
+      log(reason, "src/screens/background/components/Screen.tsx", "startApp");
       const hearthstone = await getHearthstoneGame();
       if (hearthstone) {
-        await Promise.all([start(), desktop?.minimize()]);
+        await Promise.all([start(), ingame?.restore(), desktop?.minimize()]);
       } else {
-        await Promise.all([stop(), ingame?.close(), desktop?.restore()]);
+        await Promise.all([stop(), desktop?.restore()]);
       }
     },
     [desktop, ingame, start, stop]

@@ -1,52 +1,73 @@
-name: 🚀 Build APP and release Overwolf OPK - Experimental
+name: 🚀 Build APP and release Overwolf OPK
 
-on: 
+on:
   push:
-    branches:
-      - 'master'
+    branches: [main, master]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: 🔃 Checkout
-        uses: actions/checkout@v2
-
-      - name: ⚙️ Setup node
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
         with:
-          node-version: '14.x'
+          version: 8
+      - name: ⚙️ Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "lts/*"
+          cache: "npm"
 
-      - name: 🛠️ Install and build
-        run: |
-          npm ci
-          npm run build
+      - name: 🧱 Install dependencies
+        run: npm install
 
-      - name: 📦 Zip dist files
+      - name: 📰 Semantic Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx semantic-release
+
+      - name: 🚧 Pre Build
+        run: npm run pre-build
+
+      - name: 🛠️ Build
+        run: npm run build
+
+      - name: 📦 Compression files
         id: pack
-        run: | 
-          npm run build:overwolf
+        run: npm run package-overwolf
+
+      - name: ☁️ Upload to Overwolf
+        run: |
+          echo "Uploading to Overwolf"
+          npm i -g @overwolf/ow-cli
+          ow opk pack build/
+          ow opk sign build/*.opk
+          ow opk release $(ow opk upload build/*.signed.opk -c ${{ vars.PRE_RELEASE_CHANNEL }} -w) -c ${{ vars.PRE_RELEASE_CHANNEL }} -p 100
+
+        env:
+          OW_CLI_EMAIL: ${{ secrets.OW_CLI_EMAIL }}
+          OW_CLI_API_KEY: ${{ secrets.OW_CLI_API_KEY }}
+          PRE_RELEASE_CHANNEL: ${{ vars.PRE_RELEASE_CHANNEL }}
 
       - name: 📦 Read Current Version
         id: read_current_version
         run: |
-          content=`cat ./package.json`
-          # the following lines are only required for multi line json
-          content="${content//'%'/'%25'}"
-          content="${content//$'\n'/'%0A'}"
-          content="${content//$'\r'/'%0D'}"
-          # end of optional handling for multi line json
-          echo "::set-output name=packageJson::$content"
+          tag=$(git describe --tags $(git rev-list --tags --max-count=1))
+          version_numbers=$(echo "$tag" | sed 's/[^0-9.]*//g')
+          echo "current version $tag numbers $version_numbers"
+          echo "full_version=$tag" >> $GITHUB_OUTPUT
+          echo "version=$version_numbers" >> $GITHUB_OUTPUT
 
       - name: 🛎️ Create release
         run: |
-          gh release create ${{ env.VERSION }} -t "${{ env.NAME }}" ${{ env.FILES }}
-          echo "${{fromJson(steps.read_current_version.outputs.packageJson).version}}"
+          gh release edit ${{ env.RELEASE_VERSION }} -t "${{ env.NAME }}" 
+          echo "${{env.RELEASE_VERSION}}"
+          gh release upload ${{ env.RELEASE_VERSION }} ${{ env.FILES }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          VERSION: "v${{fromJson(steps.read_current_version.outputs.packageJson).version}}"
-          NAME: "App ${{fromJson(steps.read_current_version.outputs.packageJson).name}} v${{fromJson(steps.read_current_version.outputs.packageJson).version}}"
-          FILES: dist-opk.v${{fromJson(steps.read_current_version.outputs.packageJson).version}}.opk dist.v${{fromJson(steps.read_current_version.outputs.packageJson).version}}.zip
+          NAME: "Overwolf Modern React Boilerplate ${{steps.read_current_version.outputs.full_version}}"
+          FILES: build/Overwolf\ Modern\ React\ Boilerplate-v4_${{steps.read_current_version.outputs.version}}.signed.opk unpacked_extension.${{steps.read_current_version.outputs.full_version}}.zip
+          RELEASE_VERSION: ${{ steps.read_current_version.outputs.full_version }}
 
   create-github-release:
     name: Create GitHub Release
@@ -54,9 +75,9 @@ jobs:
     needs: build
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Create Release Notes
-        uses: actions/github-script@v4.0.2
+        uses: actions/github-script@v7
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |

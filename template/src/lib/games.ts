@@ -1,4 +1,4 @@
-export const HEARTHSTONE_CLASS_ID = 21216;
+export const HEARTHSTONE_CLASS_ID = 9898;
 
 export function getHearthstoneGame(): Promise<overwolf.games.GetRunningGameInfoResult | null> {
   return new Promise((resolve) => {
@@ -10,7 +10,6 @@ export function getHearthstoneGame(): Promise<overwolf.games.GetRunningGameInfoR
   });
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function getGameInfo(): Promise<any> {
   return new Promise((resolve, reject) => {
     overwolf.games.events.getInfo((info) => {
