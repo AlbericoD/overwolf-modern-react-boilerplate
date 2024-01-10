@@ -62,8 +62,9 @@ const BackgroundWindow = () => {
         startApp("onGameInfoUpdated");
       }
     });
-    startApp("onAppLaunchTriggered");
-
+    overwolf.extensions.onAppLaunchTriggered.addListener(() => {
+      startApp("onAppLaunchTriggered");
+    });
     return () => {
       overwolf.games.onGameInfoUpdated.removeListener(() => {});
       overwolf.extensions.onAppLaunchTriggered.removeListener(() => {});

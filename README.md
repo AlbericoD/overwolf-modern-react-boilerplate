@@ -9,8 +9,8 @@
   <a href="#contribution">
     <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs welcome!" />
   </a>
-   <a href="https://github.com/AlbericoD/overwolf-modern-react-boilerplate/actions/workflows/publish-npm-package.yml">
-    <img src="https://github.com/AlbericoD/overwolf-modern-react-boilerplate/actions/workflows/publish-npm-package.yml/badge.svg?branch=master" alt="Publish NPM Package" />
+   <a href="https://github.com/AlbericoD/overwolf-modern-react-boilerplate/actions/workflows/ci.yml">
+    <img src="https://github.com/AlbericoD/overwolf-modern-react-boilerplate/actions/workflows/ci.yml/badge.svg?branch=master" alt="Publish NPM Package" />
   </a>
 </p>
 
@@ -235,3 +235,21 @@ About [ CI/CD File.yml](https://raw.githubusercontent.com/AlbericoD/overwolf-mod
 ![label](./doc/ci-2.png)
 
 ![label](./doc/ci-3.png)
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!
+
+## Projects using OMRB
+
+> If you are using OMRB in your project, please let me know! I'll be happy to list it here.
+
+- [Fortmapp](https://www.overwolf.com/app/Alberico_Dias_Barreto_Filho-Fortmapp)
+
+  > A map for Fortnite Battle Royale.
+  > ![ForFortmapptm preview](./doc/projects/fortmapp.png)
+
+- [Economy Tool](https://www.overwolf.com/app/Alberico_Dias_Barreto_Filho-Economy_Tool)
+
+  > A tool to help you manage economy in the cs2.
+  > ![Economy Tool preview](./doc/projects/economy-tool.png)
