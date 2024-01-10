@@ -33,7 +33,7 @@ overwolf.settings.language.get(({ language }) => {
     },
     () => {
       root.render(<OverwolfApp />);
-    }
+    },
   );
 });
 // If you want to start measuring performance in your app, pass a function

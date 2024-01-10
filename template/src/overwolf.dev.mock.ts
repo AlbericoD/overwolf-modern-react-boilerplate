@@ -18,7 +18,7 @@ class MockCommonMethods {
   }
   static simpleRequestInterval(
     interval: number,
-    callback: overwolf.CallbackFunction<overwolf.Result>
+    callback: overwolf.CallbackFunction<overwolf.Result>,
   ): void {
     console.info(`Callback interval ${interval}`);
     callback({ success: true });
@@ -46,7 +46,7 @@ const overwolfMock: typeof overwolf = {
     requestHardwareInfo: MockCommonMethods.simpleRequestInterval,
     requestProcessInfo: MockCommonMethods.simpleRequestInterval,
     requestPermissions: (
-      callback: overwolf.CallbackFunction<overwolf.Result>
+      callback: overwolf.CallbackFunction<overwolf.Result>,
     ) => {
       callback({ success: true });
     },
@@ -56,7 +56,9 @@ const overwolfMock: typeof overwolf = {
   settings: {
     language: {
       get: (
-        callback: (result: overwolf.settings.language.GetLanguageResult) => void
+        callback: (
+          result: overwolf.settings.language.GetLanguageResult,
+        ) => void,
       ) => {
         console.info("get language");
         callback({ language: "en", success: true });
@@ -64,16 +66,16 @@ const overwolfMock: typeof overwolf = {
       onLanguageChanged: {
         addListener: (
           callback: (
-            payload: overwolf.settings.language.LanguageChangedEvent
-          ) => void
+            payload: overwolf.settings.language.LanguageChangedEvent,
+          ) => void,
         ) => {
           console.log("onLanguageChanged addListener");
           callback({ language: "en" });
         },
         removeListener: (
           callback: (
-            payload: overwolf.settings.language.LanguageChangedEvent
-          ) => void
+            payload: overwolf.settings.language.LanguageChangedEvent,
+          ) => void,
         ) => {
           callback({ language: "en" });
         },
@@ -96,7 +98,7 @@ const overwolfMock: typeof overwolf = {
     //@ts-ignore
     obtainDeclaredWindow(
       windowName: string,
-      callback: (response: any) => void
+      callback: (response: any) => void,
     ): void {
       callback({ window: { name: windowName }, success: true });
     },
@@ -148,7 +150,7 @@ const overwolfMock: typeof overwolf = {
       onMouseDown: MockCommonMethods,
       onMouseUp: MockCommonMethods,
       getMousePosition: (
-        callback: overwolf.CallbackFunction<overwolf.games.inputTracking.GetActivityResult>
+        callback: overwolf.CallbackFunction<overwolf.games.inputTracking.GetActivityResult>,
       ) => {
         callback({
           success: true,
@@ -169,7 +171,7 @@ const overwolfMock: typeof overwolf = {
         });
       },
       getActivityInformation: (
-        callback: overwolf.CallbackFunction<overwolf.games.inputTracking.GetActivityResult>
+        callback: overwolf.CallbackFunction<overwolf.games.inputTracking.GetActivityResult>,
       ) => {
         callback({
           success: true,
@@ -190,7 +192,7 @@ const overwolfMock: typeof overwolf = {
         });
       },
       getEyeTrackingInformation: (
-        callback: overwolf.CallbackFunction<overwolf.games.inputTracking.GetActivityResult>
+        callback: overwolf.CallbackFunction<overwolf.games.inputTracking.GetActivityResult>,
       ) => {
         callback({
           success: true,

@@ -1,6 +1,7 @@
 import { RootReducer } from "app/shared/rootReducer";
 import { useMemo } from "react";
 import { useSelector } from "react-redux";
+import { fromNow } from "lib/utils";
 
 type Attributes = {
   quantity: number;
@@ -9,8 +10,7 @@ type Attributes = {
 type DataLabel = "events" | "infos";
 type Data = Record<DataLabel, Attributes>;
 
-const getAveragePerMinute = (quantity: number) =>
-  `${Math.floor(quantity ?? 1 / 60)} per minute`;
+const getUpdatedAt = (date: number): string => `updated: ${fromNow(date)}`;
 
 export const useData = () => {
   const { events, infos } = useSelector(
@@ -24,11 +24,15 @@ export const useData = () => {
     return {
       events: {
         quantity: eventsQuantity,
-        label: `Events (${getAveragePerMinute(eventsQuantity)})`,
+        label: `Events (${getUpdatedAt(
+          events[eventsQuantity - 1]?.timestamp ?? Date.now()
+        )})`,
       },
       infos: {
         quantity: infosQuantity,
-        label: `Infos (${getAveragePerMinute(infosQuantity)})`,
+        label: `Infos (${getUpdatedAt(
+          infos[infosQuantity - 1]?.timestamp ?? Date.now()
+        )})`,
       },
     };
   }, [events, infos]);

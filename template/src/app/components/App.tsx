@@ -18,7 +18,7 @@ export const App = () => {
       log(
         `Request screen: ${currentWindow}`,
         "src/app/components/App.tsx",
-        "useEffect"
+        "useEffect",
       );
     })();
   }, []);

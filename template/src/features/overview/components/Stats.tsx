@@ -7,9 +7,9 @@ type StatsProps = {
 
 export const Stats = ({ label, value }: StatsProps) => {
   return (
-    <div className='stats'>
-      <span className='stats__label'>{label}</span>
-      <span className='stats__value'>{value}</span>
+    <div className="stats">
+      <span className="stats__label">{label}</span>
+      <span className="stats__value">{value}</span>
     </div>
   );
 };
