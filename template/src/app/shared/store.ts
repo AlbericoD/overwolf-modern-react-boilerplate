@@ -7,9 +7,7 @@ const reduxStore = configureStore({
   reducer,
   devTools: false,
   enhancers: (getDefaultEnchancers) =>
-    getDefaultEnchancers().concat(
-      devToolsEnhancer({  port: 8081 })
-    ),
+    getDefaultEnchancers().concat(devToolsEnhancer({ port: 8081 })),
 });
 
 declare global {

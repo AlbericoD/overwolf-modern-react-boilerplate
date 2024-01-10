@@ -1,15 +1,18 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
+interface Timestamp {
+  timestamp: number;
+}
 type OwInfo =
   | overwolf.games.events.InfoUpdates2Event
   | overwolf.games.InstalledGameInfo;
 type OwEvent = overwolf.games.events.NewGameEvents;
-type InfoPayload = PayloadAction<OwInfo>;
-type EventPayload = PayloadAction<OwEvent>;
+type InfoPayload = PayloadAction<Timestamp & OwInfo>;
+type EventPayload = PayloadAction<Timestamp & OwEvent>;
 
 interface BackgroundState {
-  events: Array<OwEvent>;
-  infos: Array<OwInfo>;
+  events: Array<Timestamp & OwEvent>;
+  infos: Array<Timestamp & OwInfo>;
 }
 
 const initialState: BackgroundState = {

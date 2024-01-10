@@ -1,1 +1,1 @@
-export const Loading = () => <p>Loading ...</p>
+export const Loading = () => <p>Loading ...</p>;

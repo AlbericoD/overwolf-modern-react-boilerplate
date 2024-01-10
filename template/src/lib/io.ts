@@ -23,7 +23,7 @@ const getLocalAppData = (fileName: number | string) =>
   new Promise<string>((resolve) => {
     overwolf.extensions.current.getManifest(({ UID }) => {
       const path = `${overwolf.io.paths.localAppData}${getExtensionRootPath(
-        UID
+        UID,
       )}\\${fileName}.json`;
       resolve(path);
     });
@@ -64,10 +64,10 @@ const writeFileContents = <T>(path: string, data: T) =>
       (status) => {
         if (!status.success) resolve(status.error ?? "Unknown error");
         const message = `Saved in ${path} with status ${status}, data size: ${getFileSize(
-          JSON.stringify(data)
+          JSON.stringify(data),
         )}`;
         resolve(message);
-      }
+      },
     );
   });
 

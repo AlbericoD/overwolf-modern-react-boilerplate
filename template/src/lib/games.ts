@@ -4,7 +4,7 @@ export function getHearthstoneGame(): Promise<overwolf.games.GetRunningGameInfoR
   return new Promise((resolve) => {
     overwolf.games.getRunningGameInfo((result) => {
       resolve(
-        result && result.classId === HEARTHSTONE_CLASS_ID ? result : null
+        result && result.classId === HEARTHSTONE_CLASS_ID ? result : null,
       );
     });
   });

@@ -1,0 +1,12 @@
+.ads-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: var(--secondary-color-dark);
+  padding: 20px;
+}
+.ads-slot__placeholder {
+  padding: 10px;
+}

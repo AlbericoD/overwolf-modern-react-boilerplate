@@ -17,7 +17,7 @@ body {
 
 .desktop__container {
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 3fr 2fr;
   grid-template-rows: 15vh 65vh 15vh;
   grid-template-areas:
     "header header"
@@ -41,10 +41,21 @@ body {
 .desktop__main {
   background: var(--neutral-2);
   grid-area: main;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 .desktop__aside {
   background: var(--neutral-3);
   grid-area: aside;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .desktop__footer {

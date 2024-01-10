@@ -6,14 +6,14 @@ import "./styles/Screen.css";
 
 const Screen = () => {
   const { events, infos } = useSelector(
-    (state: RootReducer) => state.background
+    (state: RootReducer) => state.background,
   );
 
   return (
-    <div className='ingame'>
-      <Title color='white'>InGame Screen</Title>
+    <div className="ingame">
+      <Title color="white">InGame Screen</Title>
       <Feed
-        title='Events'
+        title="Events"
         data={
           events.length
             ? JSON.stringify(events[events.length - 1])
@@ -21,7 +21,7 @@ const Screen = () => {
         }
       />
       <Feed
-        title='Infos'
+        title="Infos"
         data={
           infos.length
             ? JSON.stringify(infos[infos.length - 1])

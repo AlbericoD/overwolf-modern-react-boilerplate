@@ -19,16 +19,40 @@ const classNames = (...classes: (string | undefined)[]) =>
 /**
  * Formats a date input into a string representation.
  * @param input The date input to format. It can be a string or a number.
- * @example const formattedDate = formatDate(new Date());
+ * @example const formattedDate = formatDate(Date.now());
  * @returns A formatted string representation of the date.
  */
 function formatDate(input: string | number): string {
   const date = new Date(input);
   return date.toLocaleDateString("en-US", {
-    month: "long",
+    month: "short",
     day: "numeric",
     year: "numeric",
   });
+}
+
+/**
+ * Formats a date input into a relative time representation.
+ * @param input The date input to format. It can be a string or a number.
+ * @example const relativeTime = fromNow(Date.now());
+ * @returns A string representing the relative time from the input date.
+ */
+function fromNow(input: string | number): string {
+  const date = new Date(input);
+  const now = new Date();
+  const seconds = Math.floor((now.getTime() - date.getTime()) / 1000);
+  const minutes = Math.floor(seconds / 60);
+  const hours = Math.floor(minutes / 60);
+
+  if (seconds < 60) {
+    return "now";
+  } else if (minutes < 60) {
+    return `${minutes}m`;
+  } else if (hours < 24) {
+    return `${hours}h`;
+  } else {
+    return formatDate(input);
+  }
 }
 
 /**
@@ -105,4 +129,5 @@ export {
   parseSafeJSON,
   sleep,
   isDev,
+  fromNow,
 };

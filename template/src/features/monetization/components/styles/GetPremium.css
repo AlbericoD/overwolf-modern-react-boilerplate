@@ -1,0 +1,29 @@
+.get-premium {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+/* //create a beautiful button */
+.get-premium__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 100%;
+  background-color: var(--neutral-1);
+  color: var(--primary-color-text);
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.get-premium__button:hover {
+  background-color: var(--neutral-2);
+}

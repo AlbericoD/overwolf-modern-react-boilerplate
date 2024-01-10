@@ -18,8 +18,20 @@ const BackgroundWindow = () => {
   const [ingame] = useWindow(INGAME, DISPLAY_OVERWOLF_HOOKS_LOGS);
   const { start, stop } = useGameEventProvider(
     {
-      onInfoUpdates: (info) => store.dispatch(setInfo(info)),
-      onNewEvents: (events) => store.dispatch(setEvent(events)),
+      onInfoUpdates: (info) =>
+        store.dispatch(
+          setInfo({
+            ...info,
+            timestamp: Date.now(),
+          })
+        ),
+      onNewEvents: (events) =>
+        store.dispatch(
+          setEvent({
+            ...events,
+            timestamp: Date.now(),
+          })
+        ),
     },
     REQUIRED_FEATURES,
     RETRY_TIMES,
@@ -50,8 +62,9 @@ const BackgroundWindow = () => {
         startApp("onGameInfoUpdated");
       }
     });
-    startApp("onAppLaunchTriggered");
-
+    overwolf.extensions.onAppLaunchTriggered.addListener(() => {
+      startApp("onAppLaunchTriggered");
+    });
     return () => {
       overwolf.games.onGameInfoUpdated.removeListener(() => {});
       overwolf.extensions.onAppLaunchTriggered.removeListener(() => {});
