@@ -21,7 +21,7 @@
     "i18n",
     "games"
   ],
-  "author": "",
+  "author": "Albérico Dias Barreto Filho",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/AlbericoD/overwolf-modern-react-boilerplate/issues"
@@ -32,10 +32,13 @@
     "template.json"
   ],
   "engines": {
-    "node": "lts/*"
+    "node": ">=20.11.0"
   },
   "devDependencies": {
     "@semantic-release/git": "^10.0.1",
     "semantic-release": "^22.0.12"
-  }
+  },
+  "man": [
+    "./README.md"
+  ]
 }

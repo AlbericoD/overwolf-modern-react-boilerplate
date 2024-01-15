@@ -3,7 +3,7 @@
     "dependencies": {
       "@reduxjs/toolkit": "^2.0.1",
       "i18next": "^23.7.16",
-      "overwolf-hooks": "^4.1.4",
+      "overwolf-hooks": "^4",
       "react": "^18.2.0",
       "react-dom": "^18.2.0",
       "react-i18next": "^14.0.0",
