@@ -236,6 +236,23 @@ About [ CI/CD File.yml](https://raw.githubusercontent.com/AlbericoD/overwolf-mod
 
 ![label](./doc/ci-3.png)
 
+### Commands
+
+> The following commands are available in your project:
+
+| Command                       | Description                                                                   |
+| ----------------------------- | ----------------------------------------------------------------------------- |
+| `npm run start`               | Starts the development server.                                                |
+| `npm run build`               | Bundles the app into static files for production.                             |
+| `npm run test`                | Starts the test runner.                                                       |
+| `npm run start-remote-server` | Starts the server that bridges the remote redux and the overwolf application. |
+| `npm run build:overwolf`      | Bundles the app into static files for production.                             |
+| `npm run lint`                | Runs the linter.                                                              |
+| `npm run format`              | Runs the code formatter.                                                      |
+| `npm run pre-build`           | Runs the pre-build script.                                                    |
+| `npm run post-build`          | Runs the post-build script.                                                   |
+| `npm run package-overwolf`    | Runs the package-overwolf script.                                             |
+
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!
