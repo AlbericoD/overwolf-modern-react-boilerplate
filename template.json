@@ -42,7 +42,7 @@
       "lint": "tsc --noEmit && eslint src/**/*.ts{,x}",
       "pre-build": "node scripts/update-manifest.js",
       "post-build": "node scripts/create-production-overwolf-build",
-      "package-overwolf": "cd build && tar -acf ../package.v$npm_package_version.zip * && cd -",
+      "package-overwolf": "cd build && tar -acf ../package.v$npm_package_version.zip * && cd ..",
       "build:overwolf": "npm run pre-build && npm run build && npm run post-build && npm run package-overwolf"
     },
     "homepage": ".",
