@@ -52,22 +52,26 @@ const BackgroundWindow = () => {
     [desktop, ingame, start, stop]
   );
 
+  const onGameInfoUpdated = async (event: overwolf.games.GameInfoUpdatedEvent) => {
+    if (
+      event.runningChanged &&
+      event.gameInfo?.classId === HEARTHSTONE_CLASS_ID
+    ) {
+      startApp("onGameInfoUpdated");
+    }
+  };
+
+  const onAppLaunchTriggered = () => {
+    startApp("onAppLaunchTriggered");
+  };
+
   useEffect(() => {
     startApp("on initial load");
-    overwolf.games.onGameInfoUpdated.addListener(async (event) => {
-      if (
-        event.runningChanged &&
-        event.gameInfo?.classId === HEARTHSTONE_CLASS_ID
-      ) {
-        startApp("onGameInfoUpdated");
-      }
-    });
-    overwolf.extensions.onAppLaunchTriggered.addListener(() => {
-      startApp("onAppLaunchTriggered");
-    });
+    overwolf.games.onGameInfoUpdated.addListener(onGameInfoUpdated);
+    overwolf.extensions.onAppLaunchTriggered.addListener(onAppLaunchTriggered);
     return () => {
-      overwolf.games.onGameInfoUpdated.removeListener(() => {});
-      overwolf.extensions.onAppLaunchTriggered.removeListener(() => {});
+      overwolf.games.onGameInfoUpdated.removeListener(onGameInfoUpdated);
+      overwolf.extensions.onAppLaunchTriggered.removeListener(onAppLaunchTriggered);
     };
   }, [startApp]);
 
